@@ -1,17 +1,17 @@
-const chart = require("../models/chart.model");
+const cart = require("../models/cart.model");
 const stockProducts = require("../models/products.model");
 
-function showChartProducts(req, res) {
-  return res.status(200).json(chart);
+function showCartProducts(req, res) {
+  return res.status(200).json(cart);
 }
 
-function addProductToChart(req, res) {
+function addProductToCart(req, res) {
   const id = req.body.id;
   const colorSelected = req.body.colorSelected;
   const amount = req.body.amount;
 
   const productToBeAdded = stockProducts.find((product) => product.id === id);
-  chart.push({
+  cart.push({
     productName: productToBeAdded.name,
     colorSelected: colorSelected,
     unitPrice: productToBeAdded.unitPrice,
@@ -21,13 +21,13 @@ function addProductToChart(req, res) {
   res.status(201).json(productToBeAdded);
 }
 
-function removeProductFromChart(req, res) {
+function removeProductFromCart(req, res) {
   const id = req.body.id;
 
   const productToBeRemoved = stockProducts.find((product) => product.id === id);
-  const newChart = chart.filter((product) => product.id !== id);
+  const newCart = cart.filter((product) => product.id !== id);
 
-  chart = newChart;
+  cart = newCart;
 
   return res.status(200).json(productToBeRemoved);
 }
@@ -36,7 +36,7 @@ function updateProductAmount(req, res) {
   const id = req.body.id;
   const amount = req.body.amount;
 
-  chart.forEach((product) => {
+  cart.forEach((product) => {
     if (product.id === id) {
       product.amount += amount;
     }
@@ -44,8 +44,8 @@ function updateProductAmount(req, res) {
 }
 
 module.exports = {
-  showChartProducts,
-  addProductToChart,
-  removeProductFromChart,
+  showCartProducts,
+  addProductToCart,
+  removeProductFromCart,
   updateProductAmount,
 };

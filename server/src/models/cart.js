@@ -1,4 +1,4 @@
-const chart = [
+const cart = [
   {
     productName: "guitar",
     colorSelected: "red",
@@ -13,4 +13,4 @@ const chart = [
   },
 ];
 
-module.exports = chart;
+module.exports = cart;
