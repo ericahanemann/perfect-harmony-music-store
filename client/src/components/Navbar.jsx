@@ -4,7 +4,7 @@ import { BsCart3, BsHeart } from "react-icons/bs";
 
 function Navbar() {
   return (
-    <div>
+    <div className="bg-primary fixed top-0 inset-x-0 z-10">
       <nav className="flex justify-between items-center px-4 text- font-semibold uppercase">
         <Link to="/">
           <img src={logo} alt="perfect harmony logo" width={80} />
@@ -41,32 +41,28 @@ function Navbar() {
 
       <div id="marquee" className="bg-textcolor text-primary">
         <div id="marquee-text" className="flex overflow-hidden">
-          <div className="marquee-item inline-block mx-60">
-            Aproveite 10% OFF na primeira compra utilizando o cupom
+          <div className="marquee-item inline-block mx-32">
+            Get 10% OFF on your first purchase using the coupon
             <span className="text-secondary p-1">10OFF</span>.
           </div>
-          <div className="marquee-item inline-block">
-            Frete grátis em compras acima de R$500.
+          <div className="marquee-item inline-block mx-32">
+            Free shipping on orders over $500.
+          </div>
+          <div className="marquee-item inline-block mx-32">
+            Limited-time offer: Save up to 20% on selected instruments!
           </div>
         </div>
 
         <div id="marquee-text" className="flex overflow-hidden">
-          <div className="marquee-item inline-block mx-60">
-            Aproveite 10% OFF na primeira compra utilizando o cupom
+          <div className="marquee-item inline-block mx-32">
+            Get 10% OFF on your first purchase using the coupon
             <span className="text-secondary p-1">10OFF</span>.
           </div>
-          <div className="marquee-item inline-block">
-            Frete grátis em compras acima de R$500.
+          <div className="marquee-item inline-block mx-32">
+            Free shipping on orders over $500.
           </div>
-        </div>
-
-        <div id="marquee-text" className="flex overflow-hidden">
-          <div className="marquee-item inline-block mx-60">
-            Aproveite 10% OFF na primeira compra utilizando o cupom
-            <span className="text-secondary p-1">10OFF</span>.
-          </div>
-          <div className="marquee-item inline-block">
-            Frete grátis em compras acima de R$500.
+          <div className="marquee-item inline-block mx-32">
+            Limited-time offer: Save up to 20% on selected instruments!
           </div>
         </div>
       </div>
