@@ -49,7 +49,9 @@ function Navbar() {
             Free shipping on orders over $500.
           </div>
           <div className="marquee-item inline-block mx-32">
-            Limited-time offer: Save up to 20% on selected instruments!
+            Limited-time offer:{" "}
+            <span className="text-secondary p-1">Save up to 20%</span> on
+            selected instruments!
           </div>
         </div>
 
@@ -62,7 +64,9 @@ function Navbar() {
             Free shipping on orders over $500.
           </div>
           <div className="marquee-item inline-block mx-32">
-            Limited-time offer: Save up to 20% on selected instruments!
+            Limited-time offer:{" "}
+            <span className="text-secondary p-1">Save up to 20%</span> on
+            selected instruments!
           </div>
         </div>
       </div>

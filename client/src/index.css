@@ -7,6 +7,7 @@
     --color-primary: #ffffff;
     --color-secondary: #ff9900;
     --color-text: #000;
+    --color-highlights: #eaeaea;
   }
 }
 
@@ -26,7 +27,7 @@
 #marquee-text {
   padding: 0.1rem 0;
   display: inline-block;
-  animation: 10s marquee infinite linear;
+  animation: 15s marquee infinite linear;
 }
 
 @keyframes marquee {

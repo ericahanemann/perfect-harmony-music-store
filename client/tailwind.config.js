@@ -10,6 +10,7 @@ export default {
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
         textcolor: "var(--color-text)",
+        highlights: "var(--color-highlights)",
       },
     },
   },
