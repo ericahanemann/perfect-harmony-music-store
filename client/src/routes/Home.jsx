@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import logo from "../assets/ph-logo.png";
 import girlPlayingGuitar from "../assets/playing-guitar.jpg";
 import manPlayingGuitar from "../assets/playing-guitar2.jpg";
@@ -9,6 +11,7 @@ import guitars from "../assets/guitars.jpg";
 import drums from "../assets/drums.jpg";
 import saxophone from "../assets/saxophone.jpg";
 import keyboard from "../assets/keyboard.jpg";
+
 import { Link } from "react-router-dom";
 import {
   PiTruckLight,
@@ -16,9 +19,12 @@ import {
   PiWhatsappLogoLight,
   PiMedalLight,
 } from "react-icons/pi";
-import { useEffect, useState } from "react";
+
+import useProducts from "../hooks/useProducts";
 
 function Home() {
+  const { specifProductsRequired } = useProducts();
+
   const homeBgCollection = [
     manPlayingBass,
     girlPlayingGuitar,
@@ -37,7 +43,7 @@ function Home() {
 
   useEffect(() => {
     const homeBgTimer = setTimeout(() => {
-      if (activeHomeBgIndex == homeBgCollection.length - 1) {
+      if (activeHomeBgIndex === homeBgCollection.length - 1) {
         setActiveHomeBgIndex(0);
       } else {
         setActiveHomeBgIndex(activeHomeBgIndex + 1);
@@ -46,6 +52,21 @@ function Home() {
 
     return () => clearTimeout(homeBgTimer);
   }, [activeHomeBgIndex, homeBgCollection.length]);
+
+  // Certifique-se de que este useEffect seja usado apenas na montagem inicial
+  useEffect(() => {
+    // Iniciar o temporizador na montagem inicial do componente
+    const timer = setTimeout(() => {
+      if (activeHomeBgIndex === homeBgCollection.length - 1) {
+        setActiveHomeBgIndex(0);
+      } else {
+        setActiveHomeBgIndex(activeHomeBgIndex + 1);
+      }
+    }, 8000);
+
+    // Limpar o temporizador ao desmontar o componente
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="pt-6">
@@ -56,7 +77,7 @@ function Home() {
           <div className="h-3/5 flex flex-col justify-start items-center w-2/3 gap-6">
             <h1 className="uppercase text-4xl text-secondary font-bold text-center">
               Crafting Melodies, Creating{" "}
-              <spanc className="font-extrabold text-5xl">Memories</spanc>
+              <span className="font-extrabold text-5xl">Memories</span>
             </h1>
             <p className="text-lg text-center">
               Music is much more than just sounds. It&apos;s a form of
@@ -148,9 +169,7 @@ function Home() {
             <div className="flex-1 flex flex-col items-center justify-center">
               <PiTruckLight size={100}></PiTruckLight>
               <h4 className="uppercase text-lg mb-2">fast delivery</h4>
-              <p className="text-center font-light">
-                Fast delivery worldwide
-              </p>
+              <p className="text-center font-light">Fast delivery worldwide</p>
             </div>
 
             <div className="flex-1 flex flex-col items-center justify-center">

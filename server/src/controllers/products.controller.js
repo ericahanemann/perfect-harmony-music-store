@@ -5,7 +5,7 @@ function getAllProducts(req, res) {
 }
 
 function getSpecificProduct(req, res) {
-  const productType = req.body.type;
+  const productType = req.params.productType;
   let productsRequired = [];
 
   stockProducts.map((product) => {
