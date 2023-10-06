@@ -9,6 +9,7 @@ function Navbar() {
         <Link to="/">
           <img src={logo} alt="perfect harmony logo" width={80} />
         </Link>
+
         <div className="flex gap-6">
           <Link
             to="/"
@@ -23,6 +24,7 @@ function Navbar() {
             Products
           </Link>
         </div>
+
         <div className="flex items-center gap-6 font-extrabold">
           <Link
             to="/"

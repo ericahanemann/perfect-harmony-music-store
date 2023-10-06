@@ -148,7 +148,7 @@ function Home() {
             <div className="flex-1 flex flex-col items-center justify-center">
               <PiTruckLight size={100}></PiTruckLight>
               <h4 className="uppercase text-lg mb-2">fast delivery</h4>
-              <p className="text-center font-extralight">
+              <p className="text-center font-light">
                 Fast delivery worldwide
               </p>
             </div>
@@ -158,7 +158,7 @@ function Home() {
               <h4 className="uppercase text-lg mb-2">
                 Wide Variety of Instruments
               </h4>
-              <p className="text-center font-extralight">
+              <p className="text-center font-light">
                 Explore a diverse range of musical instruments
               </p>
             </div>
@@ -166,15 +166,15 @@ function Home() {
             <div className="flex-1 flex flex-col items-center justify-center">
               <PiWhatsappLogoLight size={100}></PiWhatsappLogoLight>
               <h4 className="uppercase text-lg mb-2">WhatsApp support</h4>
-              <p className="text-center font-extralight">
+              <p className="text-center font-light">
                 Get support through WhatsApp for all your musical needs.
               </p>
             </div>
 
             <div className="flex-1 flex flex-col items-center justify-center">
-              <PiMedalLight size={100} className="font-light"></PiMedalLight>
+              <PiMedalLight size={100}></PiMedalLight>
               <h4 className="uppercase text-lg mb-2">Quality Guarantee</h4>
-              <p className="text-center font-extralight">
+              <p className="text-center font-light">
                 Quality assurance for all products
               </p>
             </div>
