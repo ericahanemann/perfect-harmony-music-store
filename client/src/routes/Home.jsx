@@ -11,6 +11,7 @@ import guitars from "../assets/guitars.jpg";
 import drums from "../assets/drums.jpg";
 import saxophone from "../assets/saxophone.jpg";
 import keyboard from "../assets/keyboard.jpg";
+import stratocaster from "../assets/stratocaster.png";
 
 import { Link } from "react-router-dom";
 import {
@@ -90,8 +91,61 @@ function Home() {
         <div className="w-4/6 h-screen duration-300" style={homeImgBg}></div>
       </section>
 
-      <section className="h-screen flex justify-center items-center bg-secondary">
-        <div>guitars</div>
+      <section className="flex justify-center items-center bg-secondary">
+        <div className="flex w-screen">
+          <div className="w-1/3 flex flex-col">
+            <div className="bg-highlights flex group hover:cursor-pointer">
+              <div className="w-2/5 flex justify-center items-center">
+                <p className="uppercase font-semibold">guitarra</p>
+              </div>
+              <div className="w-3/5 p-8">
+                <img
+                  src={stratocaster}
+                  alt="guitarra stratocaster"
+                  className="ease-in-out duration-300 group-hover:translate-x-20 group-hover:scale-125 group-hover:drop-shadow-3xl"
+                />
+              </div>
+            </div>
+            <div className="bg-primary flex group hover:cursor-pointer">
+              <div className="w-2/5 flex justify-center items-center">
+                <p className="uppercase font-semibold">guitarra</p>
+              </div>
+              <div className="w-3/5 p-8">
+                <img
+                  src={stratocaster}
+                  alt="guitarra stratocaster"
+                  className="ease-in-out duration-300 group-hover:translate-x-20 group-hover:scale-125 group-hover:drop-shadow-3xl"
+                />
+              </div>
+            </div>
+            <div className="bg-highlights flex group hover:cursor-pointer">
+              <div className="w-2/5 flex justify-center items-center">
+                <p className="uppercase font-semibold">guitarra</p>
+              </div>
+              <div className="w-3/5 p-8">
+                <img
+                  src={stratocaster}
+                  alt="guitarra stratocaster"
+                  className="ease-in-out duration-300 group-hover:translate-x-20 group-hover:scale-125 group-hover:drop-shadow-3xl"
+                />
+              </div>
+            </div>
+            <div className="bg-primary flex group hover:cursor-pointer">
+              <div className="w-2/5 flex justify-center items-center">
+                <p className="uppercase font-semibold">guitarra</p>
+              </div>
+              <div className="w-3/5 p-8">
+                <img
+                  src={stratocaster}
+                  alt="guitarra stratocaster"
+                  className="ease-in-out duration-300 group-hover:translate-x-20 group-hover:scale-125 group-hover:drop-shadow-3xl"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-1 bg-secondary">big guitar</div>
+        </div>
       </section>
 
       <section className="h-screen flex justify-center items-center">

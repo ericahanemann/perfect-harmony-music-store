@@ -12,6 +12,9 @@ export default {
         textcolor: "var(--color-text)",
         highlights: "var(--color-highlights)",
       },
+      dropShadow: {
+        "3xl": "0 25px 25px rgb(0 0 0 / 0.5)",
+      },
     },
   },
   plugins: [],
