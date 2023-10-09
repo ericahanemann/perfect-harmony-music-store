@@ -27,8 +27,6 @@ import useProducts from "../hooks/useProducts";
 function Home() {
   const { isLoading, specificProductsRequired } = useProducts();
 
-  console.log(specificProductsRequired)
-
   const homeBgCollection = [
     manPlayingBass,
     girlPlayingGuitar,
@@ -103,7 +101,7 @@ function Home() {
           <div className="w-4/6 h-screen duration-300" style={homeImgBg}></div>
         </section>
 
-        <section className="flex justify-center items-center bg-secondary">
+        <section className="flex justify-center items-center">
           <InstrumentsGallery
             specificProductsRequired={specificProductsRequired}
           />

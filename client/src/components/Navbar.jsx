@@ -4,7 +4,7 @@ import { BsCart3, BsHeart } from "react-icons/bs";
 
 function Navbar() {
   return (
-    <div className="bg-primary fixed top-0 inset-x-0 z-10">
+    <div className="bg-primary fixed top-0 inset-x-0 z-50">
       <nav className="flex justify-between items-center px-4 text- font-semibold uppercase">
         <Link to="/">
           <img src={logo} alt="perfect harmony logo" width={80} />
