@@ -42,6 +42,7 @@ function InstrumentsGallery({ specificProductsRequired }) {
           <InstrumentsGalleryItem
             key={productItem.id}
             id={productItem.id}
+            index={productIndex}
             name={productItem.name}
             img={productItem.colorsAvailable[0].images[0]}
             onClick={() => {

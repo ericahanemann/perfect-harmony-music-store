@@ -14,7 +14,7 @@ export default {
         highlights: "var(--color-highlights)",
       },
       dropShadow: {
-        "3xl": "0 15px 15px rgb(0 0 0 / 0.3)",
+        "3xl": "0 15px 15px rgb(0 0 0 / 0.2)",
         "5xl": "-35px 35px 65px rgb(255 255 255  / 0.4)"
       },
     },

@@ -68,19 +68,19 @@ function Footer() {
             follow perfect harmony:
           </h4>
           <div className="flex gap-6">
-            <a href="#" target="blank">
+            <a href="https://www.instagram.com/" target="blank">
               <BsInstagram
                 size={30}
                 className="hover:text-secondary"
               ></BsInstagram>
             </a>
-            <a href="#" target="blank">
+            <a href="https://facebook.com/" target="blank">
               <BsFacebook
                 size={30}
                 className="hover:text-secondary"
               ></BsFacebook>
             </a>
-            <a href="#" target="blank">
+            <a href="https://pinterest.com/" target="blank">
               <BsPinterest
                 size={30}
                 className="hover:text-secondary"
