@@ -21,6 +21,7 @@ import {
 } from "react-icons/pi";
 
 import InstrumentsGallery from "../components/InstrumentsGallery";
+import LogoSlider from "../components/LogoSlider";
 
 import useProducts from "../hooks/useProducts";
 
@@ -101,6 +102,10 @@ function Home() {
           <div className="w-4/6 h-screen duration-300" style={homeImgBg}></div>
         </section>
 
+        <section className="pt-24">
+          <LogoSlider />
+        </section>
+
         <section className="flex justify-center items-center">
           <InstrumentsGallery
             specificProductsRequired={specificProductsRequired}
@@ -108,8 +113,8 @@ function Home() {
         </section>
 
         <section className="h-screen flex justify-center items-center">
-          <div className="w-4/5 h-full py-20 flex flex-col justify-between items-center">
-            <h3 className="text-3xl uppercase font-semibold">categories</h3>
+          <div className="w-4/5 h-full py-24 flex flex-col items-center">
+            <h3 className="text-3xl uppercase font-semibold pb-12">categories</h3>
 
             <div className="flex flex-wrap justify-around h-4/5 w-full mb-10">
               <Link

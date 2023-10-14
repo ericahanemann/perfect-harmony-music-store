@@ -74,52 +74,55 @@ function InstrumentsGallery({ specificProductsRequired }) {
   );
 
   return (
-    <div className="flex w-screen relative">
-      <button to="/">
-        <BsHeart
-          size={24}
-          className="absolute top-6 right-6 z-20 text-primary hover:text-secondary"
-        ></BsHeart>
-      </button>
+    <div className="flex flex-col overflow-x-hidden">
+      <h3 className="text-3xl uppercase font-semibold m-auto pt-24 pb-12">check out some of our coolest guitars!</h3>
+      <div className="flex w-screen relative">
+        <button to="/">
+          <BsHeart
+            size={24}
+            className="absolute top-6 right-6 z-20 text-primary hover:text-secondary"
+          ></BsHeart>
+        </button>
 
-      <div className="w-1/3 flex flex-col z-10">{productsToBeDisplayed}</div>
+        <div className="w-1/3 flex flex-col z-10">{productsToBeDisplayed}</div>
 
-      <div className="flex-1 bg-textcolor text-primary flex flex-col justify-center relative">
-        <div
-          className="w-3/4 h-4/5 absolute bg-textcolor right-0"
-          style={instrumentDisplayedBg}
-        ></div>
-        <div className="flex justify-start items-center">
-          <div>
-            <img
-              src={instrumentDisplayedImage}
-              alt="instrument image"
-              className="drop-shadow-5xl -rotate-90 w-5/6 z-10"
-            />
-          </div>
-
-          <div className="flex flex-col gap-4 justify-center items-center">
-            <div className="flex gap-4 items-center">
-              <div className="uppercase text-7xl font-extrabold tracking-tighter z-10">
-                {instrumentDisplayed.brand}
-              </div>
-              <div className="uppercase text-xl font-extrabold tracking-tighter z-10 pr-8">
-                {instrumentDisplayed.name}
-              </div>
+        <div className="flex-1 bg-textcolor text-primary flex flex-col justify-center relative">
+          <div
+            className="w-3/4 h-4/5 absolute bg-textcolor right-0"
+            style={instrumentDisplayedBg}
+          ></div>
+          <div className="flex justify-start items-center">
+            <div>
+              <img
+                src={instrumentDisplayedImage}
+                alt="instrument image"
+                className="drop-shadow-5xl -rotate-90 w-5/6 z-10"
+              />
             </div>
 
-            <div className="flex gap-4 z-10">{colorSelector}</div>
+            <div className="flex flex-col gap-4 justify-center items-center">
+              <div className="flex gap-4 items-center">
+                <div className="uppercase text-7xl font-extrabold tracking-tighter z-10">
+                  {instrumentDisplayed.brand}
+                </div>
+                <div className="uppercase text-xl font-extrabold tracking-tighter z-10 pr-8">
+                  {instrumentDisplayed.name}
+                </div>
+              </div>
+
+              <div className="flex gap-4 z-10">{colorSelector}</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-0 right-0 text-primary z-20 flex">
-        <button className="py-4 px-6 uppercase font-semibold bg-highlights text-textcolor hover:bg-primary">
-          <Link to="/">More info</Link>
-        </button>
-        <button className="py-4 px-6 uppercase font-semibold bg-secondary text-textcolor hover:bg-secondarylight">
-          Add to chart
-        </button>
+        <div className="absolute bottom-0 right-0 text-primary z-20 flex">
+          <button className="py-4 px-6 uppercase font-semibold bg-highlights text-textcolor hover:bg-primary">
+            <Link to="/">More info</Link>
+          </button>
+          <button className="py-4 px-6 uppercase font-semibold bg-secondary text-textcolor hover:bg-secondarylight">
+            Add to chart
+          </button>
+        </div>
       </div>
     </div>
   );
