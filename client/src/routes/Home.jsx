@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import logo from "../assets/ph-logo.png";
+import logo from "../assets/ph-icon.png";
 import girlPlayingGuitar from "../assets/playing-guitar.jpg";
 import manPlayingGuitar from "../assets/playing-guitar2.jpg";
 import manPlayingBass from "../assets/playing-bass.jpg";
@@ -81,10 +81,15 @@ function Home() {
     );
   } else {
     return (
-      <div className="pt-6">
-        <section className="h-screen flex items-center">
-          <div className="w-2/6 flex flex-col justify-around items-center h-2/5">
-            <img src={logo} alt="perfect harmony logo" className="h-full" />
+      <div>
+        <section className="relative h-screen flex flex-col items-center md:flex-row md:justify-between">
+          <div className="absolute inset-0 z-20 flex flex-col justify-around items-center bg-primary opacity-70 md:hidden"></div>
+          <div className="absolute inset-x-0 top-40 bottom-0 z-20 flex flex-col justify-around items-center md:static md:h-5/6 md:w-3/6 md:pt-16 lg:w-2/6">
+            <img
+              src={logo}
+              alt="perfect harmony logo"
+              className="h-60 md:h-52 lg:h-full"
+            />
 
             <div className="h-3/5 flex flex-col justify-start items-center w-2/3 gap-6">
               <h1 className="uppercase text-4xl text-secondary font-bold text-center">
@@ -99,7 +104,10 @@ function Home() {
               </p>
             </div>
           </div>
-          <div className="w-4/6 h-screen duration-300" style={homeImgBg}></div>
+          <div
+            className="absolute z-10 inset-0 duration-300 md:static md:h-screen md:w-3/6 lg:w-4/6"
+            style={homeImgBg}
+          ></div>
         </section>
 
         <section className="pt-24">
@@ -114,7 +122,9 @@ function Home() {
 
         <section className="h-screen flex justify-center items-center">
           <div className="w-4/5 h-full py-24 flex flex-col items-center">
-            <h3 className="text-3xl uppercase font-semibold pb-12">categories</h3>
+            <h3 className="text-3xl uppercase font-semibold pb-12">
+              categories
+            </h3>
 
             <div className="flex flex-wrap justify-around h-4/5 w-full mb-10">
               <Link

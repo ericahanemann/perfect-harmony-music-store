@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import useProducts from "./hooks/useProducts";
-import logo from "./assets/ph-logo.png";
+import logo from "./assets/ph-icon.png";
 
 function App() {
   const { isLoading } = useProducts();

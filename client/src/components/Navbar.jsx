@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/ph-logo.png";
+import logo from "../assets/ph-icon.png";
 import { BsCart3, BsHeart, BsXLg } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 
