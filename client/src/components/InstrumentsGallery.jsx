@@ -80,7 +80,7 @@ function InstrumentsGallery({ specificProductsRequired }) {
         <button to="/">
           <BsHeart
             size={24}
-            className="absolute top-6 right-6 z-20 text-primary hover:text-secondary"
+            className="absolute top-6 right-10 z-20 text-primary hover:text-secondary"
           ></BsHeart>
         </button>
 
