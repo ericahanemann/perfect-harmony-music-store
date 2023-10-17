@@ -17,7 +17,7 @@ function Navbar() {
   };
 
   return (
-    <div className="bg-primary fixed top-0 inset-x-0 z-50">
+    <div className="bg-primary fixed top-0 inset-x-0 z-50 w-screen">
       <nav className="flex justify-between items-center px-4 font-semibold uppercase h-20">
         <Link to="/" className={`${isMobileMenuOpen ? "hidden" : "block"}`}>
           <img src={logo} alt="perfect harmony logo" className="w-16 md:w-20" />
@@ -38,7 +38,7 @@ function Navbar() {
           </Link>
         </div>
 
-        <div className="flex items-center gap-6 font-extrabold">
+        <div className="flex items-center gap-6 mr-6 font-extrabold">
           <Link
             to="/"
             className={`${
@@ -73,7 +73,7 @@ function Navbar() {
 
         <div
           className={`transition-opacity ease-in-out duration-500 gap-6 ${
-            isMobileMenuOpen ? "flex opacity-100" : "flex opacity-0"
+            isMobileMenuOpen ? "flex opacity-100" : "hidden opacity-0"
           } flex-col absolute h-screen z-50 bg-primary inset-x-0 top-20 bottom-0 justify-center items-center md:hidden`}
           ref={mobileNavbarRef}
         >

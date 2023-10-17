@@ -42,7 +42,7 @@ function LogoSlider() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const visibleLogos = logos.slice(currentIndex, currentIndex + 6);
+  const visibleLogos = logos.slice(currentIndex, currentIndex + 5);
 
   const nextSlide = () => {
     if (currentIndex < logos.length - visibleLogos.length) {
@@ -57,7 +57,7 @@ function LogoSlider() {
   };
 
   return (
-    <div className="flex justify-around items-center w-4/5 m-auto">
+    <div className="flex justify-around items-center w-5/6 m-auto md:w-4/5">
       <button onClick={prevSlide}>
         <BsChevronLeft size={35} className="text-highlights font-extrabold" />
       </button>
@@ -67,7 +67,7 @@ function LogoSlider() {
             key={index}
             src={logo}
             alt={`brand logo`}
-            className="w-auto h-20"
+            className="w-auto h-12 md:h-20"
           />
         ))}
       </div>

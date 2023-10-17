@@ -81,22 +81,22 @@ function Home() {
     );
   } else {
     return (
-      <div>
+      <div className="w-screen">
         <section className="relative h-screen flex flex-col items-center md:flex-row md:justify-between">
           <div className="absolute inset-0 z-20 flex flex-col justify-around items-center bg-primary opacity-70 md:hidden"></div>
-          <div className="absolute inset-x-0 top-40 bottom-0 z-20 flex flex-col justify-around items-center md:static md:h-5/6 md:w-3/6 md:pt-16 lg:w-2/6">
+          <div className="absolute inset-x-0 top-36 bottom-0 z-20 flex flex-col justify-around items-center md:static md:w-3/6 md:mt-16 lg:w-2/6">
             <img
               src={logo}
               alt="perfect harmony logo"
-              className="h-60 md:h-52 lg:h-full"
+              className="h-60 lg:h-72"
             />
 
             <div className="h-3/5 flex flex-col justify-start items-center w-2/3 gap-6">
-              <h1 className="uppercase text-4xl text-secondary font-bold text-center">
+              <h1 className="uppercase text-2xl text-secondary font-bold text-center md:text-4xl">
                 Crafting Melodies, Creating{" "}
                 <span className="font-extrabold text-5xl">Memories</span>
               </h1>
-              <p className="text-lg text-center">
+              <p className="md:text-lg text-center">
                 Music is much more than just sounds. It&apos;s a form of
                 expression, a way to share feelings, and build special moments.
                 Our mission is to help you create unforgettable musical memories
@@ -110,11 +110,11 @@ function Home() {
           ></div>
         </section>
 
-        <section className="pt-24">
+        <section className="mt-32 w-screen">
           <LogoSlider />
         </section>
 
-        <section className="flex justify-center items-center">
+        <section className="h-screen mt-32 flex justify-center items-center">
           <InstrumentsGallery
             specificProductsRequired={specificProductsRequired}
           />
