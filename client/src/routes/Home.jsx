@@ -122,14 +122,14 @@ function Home() {
 
         <section className="h-screen flex justify-center items-center">
           <div className="w-4/5 h-full py-24 flex flex-col items-center">
-            <h3 className="text-3xl uppercase font-semibold pb-12">
+            <h3 className="text-lg uppercase font-semibold pb-12 md:text-2xl lg:text-3xl">
               categories
             </h3>
 
-            <div className="flex flex-wrap justify-around h-4/5 w-full mb-10">
+            <div className="flex flex-col justify-around w-screen px-20 mb-10 h-4/5 lg:flex-row lg:flex-wrap lg:w-full lg:px-0">
               <Link
                 to="/"
-                className=" relative w-2/5 h-1/2 mb-10 flex justify-center items-center text-primary"
+                className="relative w-full h-5/6 mb-6 flex justify-center items-center text-primary lg:w-2/5 lg:h-1/2 lg:mb-10"
                 style={{
                   backgroundImage: `url(${drums})`,
                   backgroundSize: "cover",
@@ -143,7 +143,7 @@ function Home() {
               </Link>
               <Link
                 to="/"
-                className=" relative w-2/5 h-1/2 mb-10 flex justify-center items-center text-primary"
+                className="relative w-full h-5/6 mb-6 flex justify-center items-center text-primary lg:w-2/5 lg:h-1/2 lg:mb-10"
                 style={{
                   backgroundImage: `url(${guitars})`,
                   backgroundSize: "cover",
@@ -157,7 +157,7 @@ function Home() {
               </Link>
               <Link
                 to="/"
-                className=" relative w-2/5 h-1/2 mb-10 flex justify-center items-center text-primary"
+                className="relative w-full h-5/6 mb-6 flex justify-center items-center text-primary lg:w-2/5 lg:h-1/2 lg:mb-10"
                 style={{
                   backgroundImage: `url(${saxophone})`,
                   backgroundSize: "cover",
@@ -171,7 +171,7 @@ function Home() {
               </Link>
               <Link
                 to="/"
-                className=" relative w-2/5 h-1/2 mb-10 flex justify-center items-center text-primary"
+                className="relative w-full h-5/6 mb-6 flex justify-center items-center text-primary lg:w-2/5 lg:h-1/2 lg:mb-10"
                 style={{
                   backgroundImage: `url(${keyboard})`,
                   backgroundSize: "cover",
@@ -189,41 +189,47 @@ function Home() {
 
         <section className="flex flex-col justify-center items-center bg-highlights pb-20">
           <div className="flex flex-col w-4/5 items-center">
-            <h3 className="my-20 text-3xl uppercase font-semibold">
+            <h3 className="my-20 text-lg text-center uppercase font-semibold md:text-2xl lg:text-3xl">
               Perfect Harmony: Your Music Destination
             </h3>
 
-            <div className="flex flex-wrap gap-6 items-start justify-center w-full">
-              <div className="flex-1 flex flex-col items-center justify-center">
+            <div className="flex flex-wrap gap-12 items-start justify-center w-full md:gap-6">
+              <div className="flex flex-col items-center justify-center w-screen md:flex-1">
                 <PiTruckLight size={100}></PiTruckLight>
-                <h4 className="uppercase text-lg mb-2">fast delivery</h4>
-                <p className="text-center font-light">
+                <h4 className="uppercase text-center mb-2 px-8 md:px-0 lg:text-lg">
+                  fast delivery
+                </h4>
+                <p className="text-center text-sm font-light px-8 md:px-0">
                   Fast delivery worldwide
                 </p>
               </div>
 
-              <div className="flex-1 flex flex-col items-center justify-center">
+              <div className="flex flex-col items-center justify-center w-screen md:flex-1">
                 <PiGuitarLight size={100}></PiGuitarLight>
-                <h4 className="uppercase text-lg mb-2">
+                <h4 className="uppercase text-center mb-2 px-8 md:px-0 lg:text-lg">
                   Wide Variety of Instruments
                 </h4>
-                <p className="text-center font-light">
+                <p className="text-center text-sm font-light px-8 md:px-0">
                   Explore a diverse range of musical instruments
                 </p>
               </div>
 
-              <div className="flex-1 flex flex-col items-center justify-center">
+              <div className="flex flex-col items-center justify-center w-screen md:flex-1">
                 <PiWhatsappLogoLight size={100}></PiWhatsappLogoLight>
-                <h4 className="uppercase text-lg mb-2">WhatsApp support</h4>
-                <p className="text-center font-light">
+                <h4 className="uppercase text-center mb-2 px-8 md:px-0 lg:text-lg">
+                  WhatsApp support
+                </h4>
+                <p className="text-center text-sm font-light px-8 md:px-0">
                   Get support through WhatsApp for all your musical needs.
                 </p>
               </div>
 
-              <div className="flex-1 flex flex-col items-center justify-center">
+              <div className="flex flex-col items-center justify-center w-screen md:flex-1">
                 <PiMedalLight size={100}></PiMedalLight>
-                <h4 className="uppercase text-lg mb-2">Quality Guarantee</h4>
-                <p className="text-center font-light">
+                <h4 className="uppercase text-center mb-2 px-8 md:px-0 lg:text-lg">
+                  Quality Guarantee
+                </h4>
+                <p className="text-center text-sm font-light px-8 md:px-0">
                   Quality assurance for all products
                 </p>
               </div>

@@ -74,7 +74,7 @@ function InstrumentsGallery({ specificProductsRequired }) {
   );
 
   return (
-    <div className="relative flex flex-col overflow-x-hidden h-full">
+    <div className="relative flex flex-col h-full">
       <h3 className="h-24 uppercase font-semibold m-auto px-8 text-center pb-12 md:text-2xl lg:text-3xl">
         check out some of our coolest guitars!
       </h3>

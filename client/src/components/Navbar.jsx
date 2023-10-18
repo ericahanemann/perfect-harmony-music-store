@@ -17,7 +17,7 @@ function Navbar() {
   };
 
   return (
-    <div className="bg-primary fixed top-0 inset-x-0 z-50 w-screen">
+    <div className="bg-primary fixed top-0 inset-x-0 z-50 w-screen overflow-x-hidden">
       <nav className="flex justify-between items-center px-4 font-semibold uppercase h-20">
         <Link to="/" className={`${isMobileMenuOpen ? "hidden" : "block"}`}>
           <img src={logo} alt="perfect harmony logo" className="w-16 lg:w-20" />
