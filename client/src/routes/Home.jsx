@@ -81,17 +81,17 @@ function Home() {
     );
   } else {
     return (
-      <div className="w-screen">
-        <section className="relative h-screen flex flex-col items-center md:flex-row md:justify-between">
-          <div className="absolute inset-0 z-20 flex flex-col justify-around items-center bg-primary opacity-70 md:hidden"></div>
-          <div className="absolute inset-x-0 top-36 bottom-0 z-20 flex flex-col justify-around items-center md:static md:w-3/6 md:mt-16 lg:w-2/6">
+      <div className="w-screen overflow-x-hidden">
+        <section className="relative h-screen flex flex-col items-center lg:flex-row lg:justify-between">
+          <div className="absolute inset-0 z-20 flex flex-col justify-around items-center bg-primary opacity-70 lg:hidden"></div>
+          <div className="absolute inset-x-0 top-36 bottom-0 z-20 flex flex-col justify-center items-center lg:static lg:mt-16 lg:w-2/6 lg:mx-auto">
             <img
               src={logo}
               alt="perfect harmony logo"
               className="h-60 lg:h-72"
             />
 
-            <div className="h-3/5 flex flex-col justify-start items-center w-2/3 gap-6">
+            <div className="h-3/5 flex flex-col justify-start items-center w-2/3 gap-6 md:justify-center">
               <h1 className="uppercase text-2xl text-secondary font-bold text-center md:text-4xl">
                 Crafting Melodies, Creating{" "}
                 <span className="font-extrabold text-5xl">Memories</span>
@@ -105,7 +105,7 @@ function Home() {
             </div>
           </div>
           <div
-            className="absolute z-10 inset-0 duration-300 md:static md:h-screen md:w-3/6 lg:w-4/6"
+            className="absolute z-10 inset-0 duration-300 lg:static lg:h-screen lg:w-3/6 xl:w-4/6"
             style={homeImgBg}
           ></div>
         </section>

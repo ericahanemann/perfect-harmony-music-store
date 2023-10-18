@@ -75,7 +75,7 @@ function InstrumentsGallery({ specificProductsRequired }) {
 
   return (
     <div className="relative flex flex-col overflow-x-hidden h-full">
-      <h3 className="h-24 uppercase font-semibold m-auto px-8 text-center pb-12 lg:text-3xl">
+      <h3 className="h-24 uppercase font-semibold m-auto px-8 text-center pb-12 md:text-2xl lg:text-3xl">
         check out some of our coolest guitars!
       </h3>
       <div className="flex w-screen h-full relative">
@@ -95,8 +95,8 @@ function InstrumentsGallery({ specificProductsRequired }) {
             className="w-screen h-4/5 absolute bg-textcolor right-0 lg:w-3/4"
             style={instrumentDisplayedBg}
           ></div>
-          <div className="h-full flex flex-col justify-center items-center lg:flex-row lg:justify-start">
-            <div className="flex justify-center items-start pt-12 h-1/2 md:h-auto md:pt-4 lg:justify-start lg:items-center lg:h-auto lg:pt-0">
+          <div className="h-4/5 flex flex-col justify-center items-center lg:flex-row lg:justify-start">
+            <div className="flex justify-center items-end h-1/2 md:h-auto md:pt-40 lg:justify-start lg:h-auto lg:pt-0">
               <img
                 src={instrumentDisplayedImage}
                 alt="instrument image"
@@ -104,26 +104,26 @@ function InstrumentsGallery({ specificProductsRequired }) {
               />
             </div>
 
-            <div className="flex flex-col gap-4 justify-center items-center">
-              <div className="flex flex-col gap-4 items-center lg:flex-row">
-                <div className="uppercase text-2xl text-center font-extrabold tracking-tighter z-10 lg:text-7xl">
+            <div className="flex-1 flex flex-col gap-4 pb-8 justify-end items-center">
+              <div className="flex flex-col gap-4 items-center justify-center xl:flex-row">
+                <div className="uppercase text-2xl text-center font-extrabold tracking-tighter z-10 lg:pr-8 lg:text-5xl xl:text-7xl">
                   {instrumentDisplayed.brand}
                 </div>
-                <div className="uppercase text-base text-center font-extrabold tracking-tighter z-10 lg:pr-8 lg:text-xl">
+                <div className="uppercase text-base text-center font-extrabold tracking-tighter z-10 lg:pr-8 xl:text-xl">
                   {instrumentDisplayed.name}
                 </div>
               </div>
 
-              <div className="flex gap-4 z-10">{colorSelector}</div>
+              <div className="flex gap-4 z-10 lg:pr-8">{colorSelector}</div>
             </div>
           </div>
         </div>
 
         <div className="absolute inset-x-0 bottom-0 text-primary z-20 flex md:left-2/3 md:right-0 lg:left-3/4">
-          <button className="flex-1 py-4 px-6 uppercase font-semibold bg-highlights text-textcolor hover:bg-primary md:flex-auto md:py-3 md:px-4">
+          <button className="flex-1 py-4 px-6 uppercase font-semibold bg-highlights text-textcolor hover:bg-primary md:flex-auto md:py-4 md:px-2">
             <Link to="/">More info</Link>
           </button>
-          <button className="flex-1 py-4 px-6 uppercase font-semibold bg-secondary text-textcolor hover:bg-secondarylight md:flex-auto md:py-1 md:px-4">
+          <button className="flex-1 py-4 px-6 uppercase font-semibold bg-secondary text-textcolor hover:bg-secondarylight md:flex-auto md:py-4 md:px-2">
             Add to chart
           </button>
         </div>

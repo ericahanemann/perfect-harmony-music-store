@@ -20,10 +20,10 @@ function Navbar() {
     <div className="bg-primary fixed top-0 inset-x-0 z-50 w-screen">
       <nav className="flex justify-between items-center px-4 font-semibold uppercase h-20">
         <Link to="/" className={`${isMobileMenuOpen ? "hidden" : "block"}`}>
-          <img src={logo} alt="perfect harmony logo" className="w-16 md:w-20" />
+          <img src={logo} alt="perfect harmony logo" className="w-16 lg:w-20" />
         </Link>
 
-        <div className="hidden gap-6 md:flex">
+        <div className="hidden gap-6 lg:flex">
           <Link
             to="/"
             className="hover:text-secondary ease-in-out duration-200"
@@ -57,7 +57,7 @@ function Navbar() {
           </Link>
 
           <button
-            className="align-middle hover:text-secondary ease-in-out duration-200 md:hidden"
+            className="align-middle hover:text-secondary ease-in-out duration-200 lg:hidden"
             onClick={toggleMobileMenu}
           >
             {isMobileMenuOpen ? (
@@ -74,7 +74,7 @@ function Navbar() {
         <div
           className={`transition-opacity ease-in-out duration-500 gap-6 ${
             isMobileMenuOpen ? "flex opacity-100" : "hidden opacity-0"
-          } flex-col absolute h-screen z-50 bg-primary inset-x-0 top-20 bottom-0 justify-center items-center md:hidden`}
+          } flex-col absolute h-screen z-50 bg-primary inset-x-0 top-20 bottom-0 justify-center items-center lg:hidden`}
           ref={mobileNavbarRef}
         >
           <Link
