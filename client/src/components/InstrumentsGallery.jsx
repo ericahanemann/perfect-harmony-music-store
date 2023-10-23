@@ -31,7 +31,6 @@ function InstrumentsGallery({ specificProductsRequired }) {
     setInstrumentDisplayedImage(
       instrumentDisplayed.colorsAvailable[colorId].images[0]
     );
-    console.log(instrumentDisplayed.colorsAvailable[colorId].images[0]);
   };
 
   const productsToBeDisplayed = specificProductsRequired.map(
@@ -57,7 +56,6 @@ function InstrumentsGallery({ specificProductsRequired }) {
   const colorSelector = instrumentDisplayed.colorsAvailable.map(
     (productColor, productIndex) => {
       const colorId = productIndex;
-      console.log(productColor.color);
       const colorStyle = `w-5 h-5 rounded-full border-2 border-primary hover:border-highlights hover:cursor-pointer`;
       return (
         <div

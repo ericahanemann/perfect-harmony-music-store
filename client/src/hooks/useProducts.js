@@ -1,9 +1,19 @@
 import { useCallback, useEffect, useState } from "react";
-import { httpGetSpecificProducts } from "./requests";
+import { httpGetAllProducts, httpGetSpecificProducts } from "./requests";
 
 function useProducts() {
+  const [allStockProducts, setAllStockProducts] = useState([]);
   const [specificProductsRequired, setSpecificProductsRequired] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const getAllProducts = useCallback(async () => {
+    setIsLoading(true);
+
+    const stockProducts = await httpGetAllProducts();
+    setAllStockProducts(stockProducts.data);
+
+    setIsLoading(false);
+  }, []);
 
   const productType = "guitar";
 
@@ -23,7 +33,10 @@ function useProducts() {
   }, [getSpecificProducts, specificProductsRequired.length]);
 
   return {
+    allStockProducts,
     specificProductsRequired,
+    setAllStockProducts,
+    getAllProducts,
     isLoading,
   };
 }
