@@ -29,11 +29,11 @@ function Home() {
   const { isLoading, specificProductsRequired } = useProducts();
 
   const homeBgCollection = [
-    manPlayingBass,
-    girlPlayingGuitar,
-    manPlayingSaxophone,
-    girlPlayingDrums,
     manPlayingGuitar,
+    manPlayingBass,
+    manPlayingSaxophone,
+    girlPlayingGuitar,
+    girlPlayingDrums,
     girlPlayingSaxophone,
   ];
 
