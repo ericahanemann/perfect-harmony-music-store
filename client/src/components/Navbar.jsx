@@ -30,7 +30,7 @@ function Navbar() {
             Home
           </Link>
           <Link
-            to="products"
+            to="products/all"
             className="hover:text-secondary ease-in-out duration-200"
           >
             Products

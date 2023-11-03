@@ -17,6 +17,19 @@ function getSpecificProduct(req, res) {
   return res.status(200).json(productsRequired);
 }
 
+function getSpecificCategory(req, res) {
+  const category = req.params.category;
+  let categoryRequired = [];
+
+  stockProducts.map((product) => {
+    if (product.category == category) {
+      categoryRequired.push(product);
+    }
+  });
+
+  return res.status(200).json(categoryRequired);
+}
+
 function searchProducts(req, res) {
   let matchingProducts = [];
   const searchTerm = req.body.searchTerm.toUpperCase();
@@ -37,5 +50,6 @@ function searchProducts(req, res) {
 module.exports = {
   getAllProducts,
   getSpecificProduct,
+  getSpecificCategory,
   searchProducts,
 };

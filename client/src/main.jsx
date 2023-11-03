@@ -18,8 +18,24 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "products",
-        element: <Products />,
+        path: "products/all",
+        element: <Products category="all" />,
+      },
+      {
+        path: "products/percussion",
+        element: <Products category="percussion" />,
+      },
+      {
+        path: "products/stringed",
+        element: <Products category="stringed" />,
+      },
+      {
+        path: "products/wind",
+        element: <Products category="wind" />,
+      },
+      {
+        path: "products/keyboard",
+        element: <Products category="keyboard" />,
       },
     ],
   },

@@ -1,9 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
-import { httpGetAllProducts, httpGetSpecificProducts } from "./requests";
+import {
+  httpGetAllProducts,
+  httpGetSpecificProducts,
+  httpGetSpecificCategory,
+} from "./requests";
 
 function useProducts() {
   const [allStockProducts, setAllStockProducts] = useState([]);
   const [specificProductsRequired, setSpecificProductsRequired] = useState([]);
+  const [specificCategoryRequired, setSpecificCategoryRequired] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const getAllProducts = useCallback(async () => {
@@ -15,9 +20,7 @@ function useProducts() {
     setIsLoading(false);
   }, []);
 
-  const productType = "guitar";
-
-  const getSpecificProducts = useCallback(async () => {
+  const getSpecificProducts = useCallback(async (productType) => {
     setIsLoading(true);
 
     const productsRequired = await httpGetSpecificProducts(productType);
@@ -26,17 +29,29 @@ function useProducts() {
     setIsLoading(false);
   }, []);
 
+  const getSpecificCategory = useCallback(async (category) => {
+    setIsLoading(true);
+
+    const categoryRequired = await httpGetSpecificCategory(category);
+    setSpecificCategoryRequired(categoryRequired.data);
+
+    setIsLoading(false);
+  }, []);
+
   useEffect(() => {
     if (specificProductsRequired.length == 0) {
-      getSpecificProducts();
+      getSpecificProducts("guitar");
     }
   }, [getSpecificProducts, specificProductsRequired.length]);
 
   return {
-    allStockProducts,
     specificProductsRequired,
+    allStockProducts,
     setAllStockProducts,
     getAllProducts,
+    specificCategoryRequired,
+    setSpecificCategoryRequired,
+    getSpecificCategory,
     isLoading,
   };
 }

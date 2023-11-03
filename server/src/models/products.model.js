@@ -109,7 +109,7 @@ const stockProducts = [
   },
   {
     id: 5,
-    category: "percution",
+    category: "percussion",
     type: "drums",
     brand: "gibson",
     name: "drums 1",
@@ -137,7 +137,7 @@ const stockProducts = [
   },
   {
     id: 6,
-    category: "percution",
+    category: "percussion",
     type: "drums",
     brand: "gibson",
     name: "drums 2",
