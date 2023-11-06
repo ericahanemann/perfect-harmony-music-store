@@ -1,7 +1,7 @@
 const stockProducts = [
   {
     id: 1,
-    category: "chords",
+    category: "stringed",
     type: "guitar",
     brand: "fender",
     name: "CLASSIC VIBE '50S STRATOCASTER®",
@@ -29,7 +29,7 @@ const stockProducts = [
   },
   {
     id: 2,
-    category: "chords",
+    category: "stringed",
     type: "guitar",
     brand: "fender",
     name: "PLAYER PLUS METEORA® HH",
@@ -61,7 +61,7 @@ const stockProducts = [
   },
   {
     id: 3,
-    category: "chords",
+    category: "stringed",
     type: "guitar",
     brand: "gibson",
     name: "Les Paul Classic",
@@ -89,7 +89,7 @@ const stockProducts = [
   },
   {
     id: 4,
-    category: "chords",
+    category: "stringed",
     type: "guitar",
     brand: "gibson",
     name: "Dave Mustaine Flying V EXP",

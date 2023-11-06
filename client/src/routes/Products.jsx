@@ -18,6 +18,8 @@ function Products({ category }) {
   const [numberItemsToBeDisplayed, setNumberItemsToBeDisplayed] = useState(4);
 
   let renderedItems = [];
+  let renderedTypes = [];
+  let renderedBrands = [];
   let renderedColors = [];
 
   useEffect(() => {
@@ -40,39 +42,69 @@ function Products({ category }) {
     }
   }, [allStockProducts, specificCategoryRequired, category]);
 
-  productsToBeDisplayed
-    .slice(0, numberItemsToBeDisplayed)
-    .map((product, index) => {
-      renderedItems.push(
-        product.colorsAvailable.map((productColor, index) => {
-          return (
-            <div
-              key={index}
-              className="flex flex-col w-1/4 h-96 justify-between items-start"
-            >
-              <div className="flex-1 px-8 relative flex justify-center items-center">
-                <div className="absolute inset-0 flex justify-center items-center bg-highlights -z-50"></div>
-                <div className="absolute top-4 right-4 hover:cursor-pointer hover:text-secondary">
-                  <BsHeart></BsHeart>
-                </div>
-                <img
-                  src={`../${productColor.images[0]}`}
-                  alt="product image"
-                  className="w-full h-auto"
-                />
+  productsToBeDisplayed.slice(0, numberItemsToBeDisplayed).map((product) => {
+    renderedItems.push(
+      product.colorsAvailable.map((productColor, index) => {
+        return (
+          <div
+            key={index}
+            className="flex flex-col w-1/4 h-96 justify-between items-start"
+          >
+            <div className="flex-1 px-8 relative flex justify-center items-center">
+              <div className="absolute inset-0 flex justify-center items-center bg-highlights -z-50"></div>
+              <div className="absolute top-4 right-4 hover:cursor-pointer hover:text-secondary">
+                <BsHeart></BsHeart>
               </div>
-              <div className="min-h-32 flex flex-col py-2 gap-2">
-                <h4 className="uppercase font-semibold">{product.name}</h4>
-                <p>R${product.unitPrice}</p>
-              </div>
+              <img
+                src={`../${productColor.images[0]}`}
+                alt="product image"
+                className="w-full h-auto"
+              />
             </div>
-          );
-        })
-      );
+            <div className="min-h-32 flex flex-col py-2 gap-2">
+              <h4 className="uppercase font-semibold">{product.name}</h4>
+              <p>R${product.unitPrice}</p>
+            </div>
+          </div>
+        );
+      })
+    );
 
-      renderedItems = renderedItems.slice(0, 8);
-      return renderedItems;
-    });
+    renderedItems = renderedItems.slice(0, 8);
+    return renderedItems;
+  });
+
+  let allTypes = [];
+  productsToBeDisplayed.map((product) => {
+    if (!allTypes.includes(product.type)) {
+      allTypes.push(product.type);
+    }
+  });
+
+  renderedTypes = allTypes.map((type, index) => {
+    return (
+      <div key={index} className="flex gap-2 hover:cursor-pointer">
+        <input type="checkbox" name={type} id={index} />
+        {type}
+      </div>
+    );
+  });
+
+  let allBrands = [];
+  productsToBeDisplayed.map((product) => {
+    if (!allBrands.includes(product.brand)) {
+      allBrands.push(product.brand);
+    }
+  });
+
+  renderedBrands = allBrands.map((brand, index) => {
+    return (
+      <div key={index} className="flex gap-2 hover:cursor-pointer">
+        <input type="checkbox" name={brand} id={index} />
+        {brand}
+      </div>
+    );
+  });
 
   let allColors = [];
   productsToBeDisplayed.map((product) => {
@@ -87,7 +119,7 @@ function Products({ category }) {
     return (
       <div
         key={index}
-        className="h-6 w-6 border border-solid rounded-full"
+        className="h-6 w-6 border border-solid rounded-full hover:cursor-pointer"
         style={{ backgroundColor: color }}
       ></div>
     );
@@ -117,9 +149,9 @@ function Products({ category }) {
   } else {
     return (
       <div className="relative mt-48 w-screen min-h-screen mx-auto flex justify-end">
-        <div className="fixed top-48 bottom-72 left-0 w-1/4 flex flex-col gap-8 justify-start items-start px-24 border-r border-solid border-textcolor">
+        <div className="fixed top-48 bottom-72 left-0 w-1/4 flex flex-col gap-8 justify-start items-start px-24">
           <div className="flex flex-col items-start self-start">
-            <h4 className="text-lg font-bold uppercase">categories</h4>
+            <h4 className="text-lg font-bold uppercase">category</h4>
             <NavLink
               to="../products/all"
               className={({ isActive }) => (isActive ? "text-secondary" : "")}
@@ -153,11 +185,21 @@ function Products({ category }) {
           </div>
 
           <div className="flex flex-col items-start self-start">
-            <h4 className="text-lg font-bold uppercase">colors</h4>
+            <h4 className="text-lg font-bold uppercase">Type</h4>
+            <div className="flex flex-col">{renderedTypes}</div>
+          </div>
+
+          <div className="flex flex-col items-start self-start">
+            <h4 className="text-lg font-bold uppercase">brand</h4>
+            <div className="flex flex-col">{renderedBrands}</div>
+          </div>
+
+          <div className="flex flex-col items-start self-start">
+            <h4 className="text-lg font-bold uppercase">color</h4>
             <div className="flex flex-wrap gap-4">{renderedColors}</div>
           </div>
         </div>
-        <div className="w-3/4 flex flex-col items-center">
+        <div className="w-3/4 flex flex-col items-center border-l border-solid border-highlights mb-4">
           <div className="flex flex-wrap justify-start gap-4 pl-20">
             {renderedItems.length > 0 ? renderedItems : noProductsFoundMessage}
           </div>
