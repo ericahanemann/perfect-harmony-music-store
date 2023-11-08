@@ -7,6 +7,7 @@ const stockProducts = [
     name: "CLASSIC VIBE '50S STRATOCASTER®",
     description: "very good guitar",
     color: "#ff0000",
+    images: ["stratocaster-red.png"],
     colorsAvailable: [
       {
         color: "#ff0000",
@@ -36,6 +37,7 @@ const stockProducts = [
     name: "CLASSIC VIBE '50S STRATOCASTER®",
     description: "very good guitar",
     color: "#fff",
+    images: ["stratocaster-whiteblonde.png"],
     colorsAvailable: [
       {
         color: "#ff0000",
@@ -65,6 +67,7 @@ const stockProducts = [
     name: "CLASSIC VIBE '50S STRATOCASTER®",
     description: "very good guitar",
     color: "#3f1e00",
+    images: ["stratocaster-sunburst.png"],
     colorsAvailable: [
       {
         color: "#ff0000",
@@ -94,6 +97,7 @@ const stockProducts = [
     name: "CLASSIC VIBE '50S STRATOCASTER®",
     description: "very good guitar",
     color: "#000",
+    images: ["stratocaster-black.png"],
     colorsAvailable: [
       {
         color: "#ff0000",
@@ -123,6 +127,7 @@ const stockProducts = [
     name: "PLAYER PLUS METEORA® HH",
     description: "very good guitar",
     color: "#999",
+    images: ["meteora-silverburst.png"],
     colorsAvailable: [
       {
         color: "#999",
@@ -156,6 +161,7 @@ const stockProducts = [
     name: "PLAYER PLUS METEORA® HH",
     description: "very good guitar",
     color: "#00ff00",
+    images: ["meteora-cosmicjade.png"],
     colorsAvailable: [
       {
         color: "#999",
@@ -189,6 +195,7 @@ const stockProducts = [
     name: "PLAYER PLUS METEORA® HH",
     description: "very good guitar",
     color: "#ff0000",
+    images: ["meteora-red.png"],
     colorsAvailable: [
       {
         color: "#999",
@@ -222,6 +229,7 @@ const stockProducts = [
     name: "PLAYER PLUS METEORA® HH",
     description: "very good guitar",
     color: "#3f1e00",
+    images: ["meteora-sunburst.png"],
     colorsAvailable: [
       {
         color: "#999",
@@ -255,6 +263,7 @@ const stockProducts = [
     name: "PLAYER PLUS METEORA® HH",
     description: "very good guitar",
     color: "#0000ff",
+    images: ["meteora-belairblue.png"],
     colorsAvailable: [
       {
         color: "#999",
@@ -288,6 +297,7 @@ const stockProducts = [
     name: "Les Paul Classic",
     description: "very good guitar",
     color: "#f1d500",
+    images: ["lespaul-honeyburst.png"],
     colorsAvailable: [
       {
         color: "#f1d500",
@@ -317,6 +327,7 @@ const stockProducts = [
     name: "Les Paul Classic",
     description: "very good guitar",
     color: "#c20000",
+    images: ["lespaul-cherry.png"],
     colorsAvailable: [
       {
         color: "#f1d500",
@@ -346,6 +357,7 @@ const stockProducts = [
     name: "Les Paul Classic",
     description: "very good guitar",
     color: "#f1962f",
+    images: ["lespaul-cherrysunburst.png"],
     colorsAvailable: [
       {
         color: "#f1d500",
@@ -375,6 +387,7 @@ const stockProducts = [
     name: "Les Paul Classic",
     description: "very good guitar",
     color: "#000",
+    images: ["lespaul-ebony.png"],
     colorsAvailable: [
       {
         color: "#f1d500",
@@ -404,6 +417,7 @@ const stockProducts = [
     name: "Dave Mustaine Flying V EXP",
     description: "very good guitar",
     color: "#999",
+    images: ["flyingv-silver.png"],
     colorsAvailable: [
       {
         color: "#999",
@@ -425,6 +439,7 @@ const stockProducts = [
     name: "Dave Mustaine Flying V EXP",
     description: "very good guitar",
     color: "#f1962f",
+    images: ["flyingv-antiquenatural.png"],
     colorsAvailable: [
       {
         color: "#999",
@@ -446,6 +461,7 @@ const stockProducts = [
     name: "drums 1",
     description: "very good drums",
     color: "#ff0000",
+    images: ["stratocaster-red.png"],
     colorsAvailable: [
       {
         color: "#ff0000",
@@ -475,6 +491,7 @@ const stockProducts = [
     name: "drums 1",
     description: "very good drums",
     color: "#fff",
+    images: ["stratocaster-whiteblonde.png"],
     colorsAvailable: [
       {
         color: "#ff0000",
@@ -504,6 +521,7 @@ const stockProducts = [
     name: "drums 1",
     description: "very good drums",
     color: "#3f1e00",
+    images: ["stratocaster-sunburst.png"],
     colorsAvailable: [
       {
         color: "#ff0000",
@@ -533,6 +551,7 @@ const stockProducts = [
     name: "drums 1",
     description: "very good drums",
     color: "#000",
+    images: ["stratocaster-black.png"],
     colorsAvailable: [
       {
         color: "#ff0000",
