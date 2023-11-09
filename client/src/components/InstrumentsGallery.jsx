@@ -33,25 +33,30 @@ function InstrumentsGallery({ specificProductsRequired }) {
     );
   };
 
-  const productsToBeDisplayed = specificProductsRequired.map(
-    (productItem, productIndex) => {
-      if (productIndex <= 3) {
-        //max of four instruments displayed
-        return (
-          <InstrumentsGalleryItem
-            key={productItem.id}
-            id={productItem.id}
-            index={productIndex}
-            name={productItem.name}
-            img={productItem.colorsAvailable[0].images[0]}
-            onClick={() => {
-              handleClickInstrument(productItem.id);
-            }}
-          />
-        );
-      }
-    }
-  );
+  const productsToBeDisplayed = specificProductsRequired
+  .filter((productItem, index) => {
+    return (
+      specificProductsRequired.findIndex(
+        (item) => item.name === productItem.name
+      ) === index
+    );
+  })
+  .slice(0, 4)
+  .map((item, index) => {
+    return (
+      <InstrumentsGalleryItem
+        key={item.id}
+        id={item.id}
+        index={index}
+        name={item.name}
+        img={item.colorsAvailable[0].images[0]}
+        onClick={() => {
+          handleClickInstrument(item.id);
+        }}
+      />
+    );
+  });
+
 
   const colorSelector = instrumentDisplayed.colorsAvailable.map(
     (productColor, productIndex) => {
