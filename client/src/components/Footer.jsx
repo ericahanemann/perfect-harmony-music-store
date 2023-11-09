@@ -23,7 +23,7 @@ function Footer() {
 
   return (
     <footer className="bg-textcolor text-highlights flex flex-col justify-center items-center">
-      <div className="flex flex-col gap-4 justify-between w-4/5 m-auto p-6 lg:flex-row">
+      <div className="flex flex-col gap-4 justify-between w-4/5 m-auto pt-4 pb-2 px-6 lg:flex-row">
         <div className="flex flex-col">
           <div
             className="flex justify-between"
@@ -217,7 +217,7 @@ function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-solid border-highlights pt-3 pb-5 w-11/12 text-center gap-5 text-sm text-highlights">
+      <div className="border-t border-solid border-highlights pt-3 pb-2 w-11/12 text-center gap-5 text-sm text-highlights">
         <p>
           &copy; {new Date().getFullYear()} Érica Vanessa Hanemann. All rights
           reserved.

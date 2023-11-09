@@ -14,8 +14,15 @@ function Products({ category }) {
     getSpecificCategory,
     specificCategoryRequired,
   } = useProducts();
+  const [productsData, setProductsData] = useState([]);
   const [productsToBeDisplayed, setProductsToBeDisplayed] = useState([]);
-  const [numberItemsToBeDisplayed, setNumberItemsToBeDisplayed] = useState(4);
+  const [numberItemsToBeDisplayed, setNumberItemsToBeDisplayed] = useState(12);
+  const [isFiltering, setIsFiltering] = useState(false);
+  const [filteringOptions, setFilteringOptions] = useState({
+    type: [],
+    brand: [],
+    color: [],
+  });
 
   let renderedItems = [];
   let renderedTypes = [];
@@ -36,15 +43,76 @@ function Products({ category }) {
 
   useEffect(() => {
     if (category == "all") {
+      setProductsData(allStockProducts);
       setProductsToBeDisplayed(allStockProducts);
     } else {
+      setProductsData(specificCategoryRequired);
       setProductsToBeDisplayed(specificCategoryRequired);
     }
-  }, [allStockProducts, specificCategoryRequired, category]);
+  }, [allStockProducts, specificCategoryRequired, category, isFiltering]);
 
-  productsToBeDisplayed.slice(0, numberItemsToBeDisplayed).map((product) => {
-    renderedItems.push(
-      product.colorsAvailable.map((productColor, index) => {
+  const handleFilteringOptionClick = (
+    filteringOptionLabel,
+    filteringOptionValue
+  ) => {
+    setIsFiltering(true);
+
+    const updatedFilteringOptions = { ...filteringOptions };
+    if (filteringOptionLabel == "type") {
+      if (!updatedFilteringOptions.type.includes(filteringOptionValue)) {
+        updatedFilteringOptions.type.push(filteringOptionValue);
+      } else {
+        updatedFilteringOptions.type = updatedFilteringOptions.type.filter(
+          (type) => type !== filteringOptionValue
+        );
+      }
+    } else if (filteringOptionLabel == "brand") {
+      if (!updatedFilteringOptions.brand.includes(filteringOptionValue)) {
+        updatedFilteringOptions.brand.push(filteringOptionValue);
+      } else {
+        updatedFilteringOptions.brand = updatedFilteringOptions.brand.filter(
+          (brand) => brand !== filteringOptionValue
+        );
+      }
+    } else if (filteringOptionLabel == "color") {
+      if (!updatedFilteringOptions.color.includes(filteringOptionValue)) {
+        updatedFilteringOptions.color.push(filteringOptionValue);
+      } else {
+        updatedFilteringOptions.color = updatedFilteringOptions.color.filter(
+          (color) => color !== filteringOptionValue
+        );
+      }
+    }
+
+    setFilteringOptions(updatedFilteringOptions);
+    filterProducts(updatedFilteringOptions);
+  };
+
+  const filterProducts = (filteringOptions) => {
+    let filteredProducts = [...productsData];
+    if (filteringOptions.type.length > 0) {
+      filteredProducts = filteredProducts.filter((product) =>
+        filteringOptions.type.includes(product.type)
+      );
+    }
+    if (filteringOptions.brand.length > 0) {
+      filteredProducts = filteredProducts.filter((product) =>
+        filteringOptions.brand.includes(product.brand)
+      );
+    }
+    if (filteringOptions.color.length > 0) {
+      filteredProducts = filteredProducts.filter((product) =>
+        filteringOptions.color.includes(product.color)
+      );
+    }
+
+    setProductsToBeDisplayed(filteredProducts);
+  };
+
+  renderedItems.push(
+    productsToBeDisplayed
+      .slice(0, numberItemsToBeDisplayed)
+      .map((product, index) => {
         return (
           <div
             key={index}
@@ -56,7 +124,7 @@ function Products({ category }) {
                 <BsHeart></BsHeart>
               </div>
               <img
-                src={`../${productColor.images[0]}`}
+                src={`../${product.images[0]}`}
                 alt="product image"
                 className="w-full h-auto"
               />
@@ -68,14 +136,10 @@ function Products({ category }) {
           </div>
         );
       })
-    );
-
-    renderedItems = renderedItems.slice(0, 8);
-    return renderedItems;
-  });
+  );
 
   let allTypes = [];
-  productsToBeDisplayed.map((product) => {
+  productsData.map((product) => {
     if (!allTypes.includes(product.type)) {
       allTypes.push(product.type);
     }
@@ -83,15 +147,27 @@ function Products({ category }) {
 
   renderedTypes = allTypes.map((type, index) => {
     return (
-      <div key={index} className="flex gap-2 hover:cursor-pointer">
-        <input type="checkbox" name={type} id={index} />
+      <div
+        key={index}
+        className="flex gap-2 hover:cursor-pointer"
+        onClick={() => {
+          handleFilteringOptionClick("type", type);
+        }}
+      >
+        <input
+          type="checkbox"
+          checked={filteringOptions.type.includes(type)}
+          className="accent-secondary bg-secondary rounded cursor-pointer"
+          name={type}
+          id={index}
+        />
         {type}
       </div>
     );
   });
 
   let allBrands = [];
-  productsToBeDisplayed.map((product) => {
+  productsData.map((product) => {
     if (!allBrands.includes(product.brand)) {
       allBrands.push(product.brand);
     }
@@ -99,15 +175,28 @@ function Products({ category }) {
 
   renderedBrands = allBrands.map((brand, index) => {
     return (
-      <div key={index} className="flex gap-2 hover:cursor-pointer">
-        <input type="checkbox" name={brand} id={index} />
+      <div
+        key={index}
+        className="flex gap-2 hover:cursor-pointer"
+        onClick={() => {
+          handleFilteringOptionClick("brand", brand);
+        }}
+      >
+        <input
+          type="checkbox"
+          checked={filteringOptions.brand.includes(brand)}
+          className="accent-secondary bg-secondary rounded cursor-pointer"
+          name={brand}
+          id={index}
+        />
         {brand}
       </div>
     );
   });
 
   let allColors = [];
-  productsToBeDisplayed.map((product) => {
+
+  productsData.map((product) => {
     for (let i = 0; i < product.colorsAvailable.length; i++) {
       if (!allColors.includes(product.colorsAvailable[i].color)) {
         allColors.push(product.colorsAvailable[i].color);
@@ -119,8 +208,13 @@ function Products({ category }) {
     return (
       <div
         key={index}
-        className="h-6 w-6 border border-solid rounded-full hover:cursor-pointer"
+        className={`h-6 w-6 border-2 border-solid rounded-full hover:cursor-pointer ${
+          filteringOptions.color.includes(color) ? "border-secondary" : ""
+        }`}
         style={{ backgroundColor: color }}
+        onClick={() => {
+          handleFilteringOptionClick("color", color);
+        }}
       ></div>
     );
   });
@@ -132,7 +226,7 @@ function Products({ category }) {
   );
 
   const handleLoadMoreClick = () => {
-    setNumberItemsToBeDisplayed(numberItemsToBeDisplayed + 4);
+    setNumberItemsToBeDisplayed(numberItemsToBeDisplayed + 12);
   };
 
   if (isLoading) {
@@ -148,8 +242,8 @@ function Products({ category }) {
     );
   } else {
     return (
-      <div className="relative mt-48 w-screen min-h-screen mx-auto flex justify-end">
-        <div className="fixed top-48 bottom-72 left-0 w-1/4 flex flex-col gap-8 justify-start items-start px-24">
+      <div className="relative mt-36 w-screen min-h-screen mx-auto flex justify-end">
+        <div className="fixed top-36 bottom-64 left-0 w-1/5 max-h-screen overflow-y-auto flex flex-col gap-8 justify-start items-start px-24">
           <div className="flex flex-col items-start self-start">
             <h4 className="text-lg font-bold uppercase">category</h4>
             <NavLink
@@ -199,9 +293,12 @@ function Products({ category }) {
             <div className="flex flex-wrap gap-4">{renderedColors}</div>
           </div>
         </div>
-        <div className="w-3/4 flex flex-col items-center border-l border-solid border-highlights mb-4">
+
+        <div className="w-4/5 flex flex-col items-center border-l border-solid border-highlights mb-4">
           <div className="flex flex-wrap justify-start gap-4 pl-20">
-            {renderedItems.length > 0 ? renderedItems : noProductsFoundMessage}
+            {productsToBeDisplayed.length > 0
+              ? renderedItems
+              : noProductsFoundMessage}
           </div>
           <div>
             {productsToBeDisplayed.length > numberItemsToBeDisplayed && (
