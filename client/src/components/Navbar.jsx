@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/ph-icon.png";
 import { BsCart3, BsHeart, BsXLg } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -18,42 +18,50 @@ function Navbar() {
   return (
     <div className="bg-primary fixed top-0 inset-x-0 z-50 w-screen overflow-x-hidden">
       <nav className="flex justify-between items-center px-4 font-semibold uppercase h-20">
-        <Link to="/">
+        <NavLink to="/">
           <img src={logo} alt="perfect harmony logo" className="w-16 lg:w-20" />
-        </Link>
+        </NavLink>
 
         <div className="hidden gap-6 lg:flex">
-          <Link
+          <NavLink
             to="/"
-            className="hover:text-secondary ease-in-out duration-200"
+            className={({ isActive }) =>
+              isActive
+                ? "text-secondary"
+                : "hover:text-secondary ease-in-out duration-200"
+            }
           >
             Home
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="products/all"
-            className="hover:text-secondary ease-in-out duration-200"
+            className={({ isActive }) =>
+              isActive
+                ? "text-secondary"
+                : "hover:text-secondary ease-in-out duration-200"
+            }
           >
             Products
-          </Link>
+          </NavLink>
         </div>
 
         <div className="flex items-center gap-6 mr-6 font-extrabold">
-          <Link
+          <NavLink
             to="/"
             className={`${
               isMobileMenuOpen ? "hidden" : "flex"
             } align-middle hover:text-secondary ease-in-out duration-200`}
           >
             <BsHeart className="text-xl text-bold"></BsHeart>
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/"
             className={`${
               isMobileMenuOpen ? "hidden" : "flex"
             } align-middle hover:text-secondary ease-in-out duration-200`}
           >
             <BsCart3 className="text-xl text-bold"></BsCart3>
-          </Link>
+          </NavLink>
 
           <button
             className="align-middle hover:text-secondary ease-in-out duration-200 lg:hidden"
@@ -75,28 +83,28 @@ function Navbar() {
             isMobileMenuOpen ? "flex opacity-100" : "hidden opacity-0"
           } flex-col fixed h-80 z-50 bg-primary inset-x-0 top-20 bottom-0 justify-center items-center shadow-lg lg:hidden`}
         >
-          <Link
+          <NavLink
             to="/"
             className="hover:text-secondary ease-in-out duration-200"
             onClick={closeMobileMenu}
           >
             Home
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="products"
             className="hover:text-secondary ease-in-out duration-200"
             onClick={closeMobileMenu}
           >
             Products
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/"
             className="hover:text-secondary ease-in-out duration-200"
           >
             Favorites
-          </Link>
+          </NavLink>
         </div>
       </nav>
 
