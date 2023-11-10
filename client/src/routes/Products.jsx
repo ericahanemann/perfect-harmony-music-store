@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useProducts from "../hooks/useProducts";
 
 import { NavLink } from "react-router-dom";
+import SortingDropdown from "../components/SortingDropdown";
 
 import logo from "../assets/ph-icon.png";
 import { BsHeart } from "react-icons/bs";
@@ -23,6 +24,14 @@ function Products({ category }) {
     brand: [],
     color: [],
   });
+  const sortingOptions = [
+    { label: "Most Recent", value: "most-recent" },
+    { label: "Lowest Price", value: "lowest-price" },
+    { label: "Highest Price", value: "highest-price" },
+    { label: "A to Z", value: "alphabetical-asc" },
+    { label: "Z to A", value: "alphabetical-desc" },
+  ];
+  const [activeOption, setActiveOption] = useState(sortingOptions[0]);
 
   let renderedItems = [];
   let renderedTypes = [];
@@ -243,7 +252,7 @@ function Products({ category }) {
   } else {
     return (
       <div className="relative mt-36 w-screen min-h-screen mx-auto flex justify-end">
-        <div className="fixed top-36 bottom-64 left-0 w-1/5 max-h-screen overflow-y-auto flex flex-col gap-8 justify-start items-start px-24">
+        <div className="fixed top-36 bottom-60 left-0 w-1/5 max-h-screen overflow-y-auto flex flex-col gap-8 justify-start items-start px-24">
           <div className="flex flex-col items-start self-start">
             <h4 className="text-lg font-bold uppercase">category</h4>
             <NavLink
@@ -295,20 +304,30 @@ function Products({ category }) {
         </div>
 
         <div className="w-4/5 flex flex-col items-center border-l border-solid border-highlights mb-4">
-          <div className="flex flex-wrap justify-start gap-4 pl-20">
+          <div className="flex flex-wrap justify-start gap-4 ml-20">
+            <div className="flex gap-2 justify-end items-center w-3/4 ml-8 mb-4">
+              <span className="uppercase">Sort by:</span>
+              <SortingDropdown
+                options={sortingOptions}
+                activeOption={activeOption}
+                setActiveOption={setActiveOption}
+              />
+            </div>
+
             {productsToBeDisplayed.length > 0
               ? renderedItems
               : noProductsFoundMessage}
-          </div>
-          <div>
-            {productsToBeDisplayed.length > numberItemsToBeDisplayed && (
-              <button
-                onClick={handleLoadMoreClick}
-                className="p-4 my-4 bg-secondary uppercase hover:bg-secondarylight"
-              >
-                Load more
-              </button>
-            )}
+
+            <div className="flex gap-2 justify-center items-center w-3/4 ml-8">
+              {productsToBeDisplayed.length > numberItemsToBeDisplayed && (
+                <button
+                  onClick={handleLoadMoreClick}
+                  className="p-4 my-4 bg-secondary uppercase hover:bg-secondarylight"
+                >
+                  Load more
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
