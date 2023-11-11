@@ -26,12 +26,13 @@ function Products({ category }) {
   });
   const sortingOptions = [
     { label: "Most Recent", value: "most-recent" },
-    { label: "Lowest Price", value: "lowest-price" },
-    { label: "Highest Price", value: "highest-price" },
+    { label: "Lowest Price", value: "price-asc" },
+    { label: "Highest Price", value: "price-desc" },
     { label: "A to Z", value: "alphabetical-asc" },
     { label: "Z to A", value: "alphabetical-desc" },
   ];
   const [activeOption, setActiveOption] = useState(sortingOptions[0]);
+  const [sortingOrderDescending, setSortingOrderDescending] = useState(false);
 
   let renderedItems = [];
   let renderedTypes = [];
@@ -51,14 +52,54 @@ function Products({ category }) {
   }, [getAllProducts, getSpecificCategory, category]);
 
   useEffect(() => {
+    const getSortValue = (objectToBeSorted) => {
+      if (
+        activeOption.value === "price-asc" ||
+        activeOption.value === "price-desc"
+      ) {
+        return objectToBeSorted.unitPrice;
+      } else if (
+        activeOption.value === "alphabetical-asc" ||
+        activeOption.value === "alphabetical-desc"
+      ) {
+        return objectToBeSorted.name;
+      } else if (activeOption.value === "most-recent") {
+        return objectToBeSorted.createdAt;
+      }
+    };
+
+    const sortData = (productsToSort) => {
+      console.log("chamou");
+      const sortedItems = [...productsToSort].sort((a, b) => {
+        const valueA = getSortValue(a);
+        const valueB = getSortValue(b);
+
+        const reverseOrder = sortingOrderDescending ? -1 : 1;
+
+        if (typeof valueA === "number") {
+          return (valueA - valueB) * reverseOrder;
+        } else if (typeof valueA === "string") {
+          return valueA.localeCompare(valueB) * reverseOrder;
+        }
+      });
+
+      return sortedItems;
+    };
+
     if (category == "all") {
       setProductsData(allStockProducts);
-      setProductsToBeDisplayed(allStockProducts);
+      setProductsToBeDisplayed(sortData(allStockProducts));
     } else {
       setProductsData(specificCategoryRequired);
-      setProductsToBeDisplayed(specificCategoryRequired);
+      setProductsToBeDisplayed(sortData(specificCategoryRequired));
     }
-  }, [allStockProducts, specificCategoryRequired, category, isFiltering]);
+  }, [
+    activeOption,
+    sortingOrderDescending,
+    allStockProducts,
+    specificCategoryRequired,
+    category,
+  ]);
 
   const handleFilteringOptionClick = (
     filteringOptionLabel,
@@ -116,6 +157,12 @@ function Products({ category }) {
     }
 
     setProductsToBeDisplayed(filteredProducts);
+
+    setIsFiltering(
+      filteringOptions.type.length > 0 ||
+        filteringOptions.brand.length > 0 ||
+        filteringOptions.color.length > 0
+    );
   };
 
   renderedItems.push(
@@ -311,6 +358,7 @@ function Products({ category }) {
                 options={sortingOptions}
                 activeOption={activeOption}
                 setActiveOption={setActiveOption}
+                setSortingOrderDescending={setSortingOrderDescending}
               />
             </div>
 

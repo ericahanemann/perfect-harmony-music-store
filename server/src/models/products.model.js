@@ -26,8 +26,9 @@ const stockProducts = [
         images: ["stratocaster-black.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 1300,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 2,
@@ -56,8 +57,9 @@ const stockProducts = [
         images: ["stratocaster-black.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 1300,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 3,
@@ -86,8 +88,9 @@ const stockProducts = [
         images: ["stratocaster-black.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 1300,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 4,
@@ -116,8 +119,9 @@ const stockProducts = [
         images: ["stratocaster-black.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 1300,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 5,
@@ -150,8 +154,9 @@ const stockProducts = [
         images: ["meteora-belairblue.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 1300,
     stockAmount: 12,
+    createdAt: new Date(2023, 11, 1, 12, 0, 0),
   },
   {
     id: 6,
@@ -186,6 +191,7 @@ const stockProducts = [
     ],
     unitPrice: 1500,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 7,
@@ -220,6 +226,7 @@ const stockProducts = [
     ],
     unitPrice: 1500,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 8,
@@ -254,6 +261,7 @@ const stockProducts = [
     ],
     unitPrice: 1500,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 9,
@@ -288,6 +296,7 @@ const stockProducts = [
     ],
     unitPrice: 1500,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 10,
@@ -316,8 +325,9 @@ const stockProducts = [
         images: ["lespaul-ebony.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 2000,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 11,
@@ -346,8 +356,9 @@ const stockProducts = [
         images: ["lespaul-ebony.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 2000,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 12,
@@ -376,8 +387,9 @@ const stockProducts = [
         images: ["lespaul-ebony.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 2000,
     stockAmount: 12,
+    createdAt: new Date(2023, 0, 1, 12, 0, 0),
   },
   {
     id: 13,
@@ -406,8 +418,9 @@ const stockProducts = [
         images: ["lespaul-ebony.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 2000,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 14,
@@ -428,8 +441,9 @@ const stockProducts = [
         images: ["flyingv-antiquenatural.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 1800,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 15,
@@ -450,8 +464,9 @@ const stockProducts = [
         images: ["flyingv-antiquenatural.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 1800,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 16,
@@ -480,8 +495,9 @@ const stockProducts = [
         images: ["stratocaster-black.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 3000,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 17,
@@ -510,8 +526,9 @@ const stockProducts = [
         images: ["stratocaster-black.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 3000,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 18,
@@ -540,8 +557,9 @@ const stockProducts = [
         images: ["stratocaster-black.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 3000,
     stockAmount: 12,
+    createdAt: new Date(),
   },
   {
     id: 19,
@@ -570,8 +588,9 @@ const stockProducts = [
         images: ["stratocaster-black.png"],
       },
     ],
-    unitPrice: 1500,
+    unitPrice: 3000,
     stockAmount: 12,
+    createdAt: new Date(),
   },
 ];
 

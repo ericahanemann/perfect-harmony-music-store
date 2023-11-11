@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { GoChevronDown } from "react-icons/go";
 
-function SortingDropdown({ options, activeOption, setActiveOption }) {
+function SortingDropdown({
+  options,
+  activeOption,
+  setActiveOption,
+  setSortingOrderDescending,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const divEl = useRef();
 
@@ -31,6 +36,14 @@ function SortingDropdown({ options, activeOption, setActiveOption }) {
     setIsOpen(false);
 
     setActiveOption(option);
+
+    if (option.value !== "most-recent") {
+      setSortingOrderDescending(
+        option.value === "price-desc" ||
+          option.value === "most-recent" ||
+          option.value === "alphabetical-desc"
+      );
+    }
   };
 
   const renderedOptions = options.map((option) => {
