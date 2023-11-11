@@ -18,6 +18,7 @@ function Products({ category }) {
   const [productsData, setProductsData] = useState([]);
   const [productsToBeDisplayed, setProductsToBeDisplayed] = useState([]);
   const [numberItemsToBeDisplayed, setNumberItemsToBeDisplayed] = useState(12);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [isFiltering, setIsFiltering] = useState(false);
   const [filteringOptions, setFilteringOptions] = useState({
     type: [],
@@ -86,12 +87,14 @@ function Products({ category }) {
       return sortedItems;
     };
 
-    if (category == "all") {
+    if (category == "all" && !isFiltering) {
       setProductsData(allStockProducts);
       setProductsToBeDisplayed(sortData(allStockProducts));
-    } else {
+    } else if (!isFiltering) {
       setProductsData(specificCategoryRequired);
       setProductsToBeDisplayed(sortData(specificCategoryRequired));
+    } else if (isFiltering) {
+      setProductsToBeDisplayed(sortData(filteredProducts));
     }
   }, [
     activeOption,
@@ -99,6 +102,8 @@ function Products({ category }) {
     allStockProducts,
     specificCategoryRequired,
     category,
+    isFiltering,
+    filteredProducts,
   ]);
 
   const handleFilteringOptionClick = (
@@ -139,24 +144,25 @@ function Products({ category }) {
   };
 
   const filterProducts = (filteringOptions) => {
-    let filteredProducts = [...productsData];
+    let productsToFilter = [...productsData];
     if (filteringOptions.type.length > 0) {
-      filteredProducts = filteredProducts.filter((product) =>
+      productsToFilter = productsToFilter.filter((product) =>
         filteringOptions.type.includes(product.type)
       );
     }
     if (filteringOptions.brand.length > 0) {
-      filteredProducts = filteredProducts.filter((product) =>
+      productsToFilter = productsToFilter.filter((product) =>
         filteringOptions.brand.includes(product.brand)
       );
     }
     if (filteringOptions.color.length > 0) {
-      filteredProducts = filteredProducts.filter((product) =>
+      productsToFilter = productsToFilter.filter((product) =>
         filteringOptions.color.includes(product.color)
       );
     }
 
-    setProductsToBeDisplayed(filteredProducts);
+    setFilteredProducts(productsToFilter);
+    setProductsToBeDisplayed(productsToFilter);
 
     setIsFiltering(
       filteringOptions.type.length > 0 ||
