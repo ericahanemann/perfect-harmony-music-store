@@ -3,6 +3,7 @@ import useProducts from "../hooks/useProducts";
 
 import { NavLink } from "react-router-dom";
 import SortingDropdown from "../components/SortingDropdown";
+import MobileFilter from "../components/MobileFilter";
 
 import logo from "../assets/ph-icon.png";
 import { BsHeart } from "react-icons/bs";
@@ -70,7 +71,6 @@ function Products({ category }) {
     };
 
     const sortData = (productsToSort) => {
-      console.log("chamou");
       const sortedItems = [...productsToSort].sort((a, b) => {
         const valueA = getSortValue(a);
         const valueB = getSortValue(b);
@@ -178,7 +178,7 @@ function Products({ category }) {
         return (
           <div
             key={index}
-            className="flex flex-col w-1/4 h-96 justify-between items-start"
+            className="flex flex-col w-3/4 h-96 justify-between items-start md:w-2/5 lg:w-1/4"
           >
             <div className="flex-1 px-8 relative flex justify-center items-center">
               <div className="absolute inset-0 flex justify-center items-center bg-highlights -z-50"></div>
@@ -191,8 +191,10 @@ function Products({ category }) {
                 className="w-full h-auto"
               />
             </div>
-            <div className="min-h-32 flex flex-col py-2 gap-2">
-              <h4 className="uppercase font-semibold">{product.name}</h4>
+            <div className="h-32 flex flex-col py-2 gap-2">
+              <h4 className="inline-block uppercase font-semibold">
+                {product.name}
+              </h4>
               <p>R${product.unitPrice}</p>
             </div>
           </div>
@@ -219,6 +221,7 @@ function Products({ category }) {
         <input
           type="checkbox"
           checked={filteringOptions.type.includes(type)}
+          onChange={() => handleFilteringOptionClick("type", type)}
           className="accent-secondary bg-secondary rounded cursor-pointer"
           name={type}
           id={index}
@@ -247,6 +250,7 @@ function Products({ category }) {
         <input
           type="checkbox"
           checked={filteringOptions.brand.includes(brand)}
+          onChange={() => handleFilteringOptionClick("brand", brand)}
           className="accent-secondary bg-secondary rounded cursor-pointer"
           name={brand}
           id={index}
@@ -305,7 +309,7 @@ function Products({ category }) {
   } else {
     return (
       <div className="relative mt-36 w-screen min-h-screen mx-auto flex justify-end">
-        <div className="fixed top-36 bottom-60 left-0 w-1/5 max-h-screen overflow-y-auto flex flex-col gap-8 justify-start items-start px-24">
+        <div className="fixed top-36 bottom-60 left-0 w-1/5 max-h-screen overflow-y-auto hidden flex-col gap-8 justify-start items-start mx-auto px-8 lg:flex">
           <div className="flex flex-col items-start self-start">
             <h4 className="text-lg font-bold uppercase">category</h4>
             <NavLink
@@ -356,7 +360,7 @@ function Products({ category }) {
           </div>
         </div>
 
-        <div className="w-4/5 flex flex-col items-center border-l border-solid border-highlights mb-4">
+        <div className="flex flex-col items-center mb-4 lg:w-4/5 lg:border-l lg:border-solid lg:border-highlights">
           <div className="flex flex-wrap justify-start gap-4 ml-20">
             <div className="flex gap-2 justify-end items-center w-3/4 ml-8 mb-4">
               <span className="uppercase">Sort by:</span>
@@ -365,6 +369,13 @@ function Products({ category }) {
                 activeOption={activeOption}
                 setActiveOption={setActiveOption}
                 setSortingOrderDescending={setSortingOrderDescending}
+              />
+
+              <MobileFilter
+                className="lg:hidden"
+                renderedTypes={renderedTypes}
+                renderedBrands={renderedBrands}
+                renderedColors={renderedColors}
               />
             </div>
 
