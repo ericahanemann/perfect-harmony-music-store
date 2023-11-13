@@ -42,6 +42,10 @@ function Products({ category }) {
   let renderedColors = [];
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     async function fetchData() {
       if (category == "all") {
         await getAllProducts();
@@ -211,13 +215,7 @@ function Products({ category }) {
 
   renderedTypes = allTypes.map((type, index) => {
     return (
-      <div
-        key={index}
-        className="flex gap-2 hover:cursor-pointer"
-        onClick={() => {
-          handleFilteringOptionClick("type", type);
-        }}
-      >
+      <label key={index} className="flex gap-2 hover:cursor-pointer">
         <input
           type="checkbox"
           checked={filteringOptions.type.includes(type)}
@@ -227,7 +225,7 @@ function Products({ category }) {
           id={index}
         />
         {type}
-      </div>
+      </label>
     );
   });
 
@@ -240,13 +238,7 @@ function Products({ category }) {
 
   renderedBrands = allBrands.map((brand, index) => {
     return (
-      <div
-        key={index}
-        className="flex gap-2 hover:cursor-pointer"
-        onClick={() => {
-          handleFilteringOptionClick("brand", brand);
-        }}
-      >
+      <label key={index} className="flex gap-2 hover:cursor-pointer">
         <input
           type="checkbox"
           checked={filteringOptions.brand.includes(brand)}
@@ -256,7 +248,7 @@ function Products({ category }) {
           id={index}
         />
         {brand}
-      </div>
+      </label>
     );
   });
 

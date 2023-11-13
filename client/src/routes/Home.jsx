@@ -45,6 +45,10 @@ function Home() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const homeBgTimer = setTimeout(() => {
       if (activeHomeBgIndex === homeBgCollection.length - 1) {
         setActiveHomeBgIndex(0);
@@ -128,7 +132,7 @@ function Home() {
 
             <div className="flex flex-col justify-around w-screen px-20 mb-10 h-4/5 lg:flex-row lg:flex-wrap lg:w-full lg:px-0">
               <Link
-                to="/"
+                to="/products/percussion"
                 className="relative w-full h-5/6 mb-6 flex justify-center items-center text-primary lg:w-2/5 lg:h-1/2 lg:mb-10"
                 style={{
                   backgroundImage: `url(${drums})`,
@@ -142,7 +146,7 @@ function Home() {
                 <p className="uppercase font-semibold">percussion</p>
               </Link>
               <Link
-                to="/"
+                to="/products/stringed"
                 className="relative w-full h-5/6 mb-6 flex justify-center items-center text-primary lg:w-2/5 lg:h-1/2 lg:mb-10"
                 style={{
                   backgroundImage: `url(${guitars})`,
@@ -156,7 +160,7 @@ function Home() {
                 <p className="uppercase font-semibold">stringed</p>
               </Link>
               <Link
-                to="/"
+                to="/products/wind"
                 className="relative w-full h-5/6 mb-6 flex justify-center items-center text-primary lg:w-2/5 lg:h-1/2 lg:mb-10"
                 style={{
                   backgroundImage: `url(${saxophone})`,
@@ -170,7 +174,7 @@ function Home() {
                 <p className="uppercase font-semibold">wind</p>
               </Link>
               <Link
-                to="/"
+                to="/products/keyboard"
                 className="relative w-full h-5/6 mb-6 flex justify-center items-center text-primary lg:w-2/5 lg:h-1/2 lg:mb-10"
                 style={{
                   backgroundImage: `url(${keyboard})`,
