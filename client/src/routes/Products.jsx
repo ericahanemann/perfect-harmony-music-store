@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import useProducts from "../hooks/useProducts";
 
 import { NavLink } from "react-router-dom";
+import LoadingScreen from "../components/LoadingScreen";
 import SortingDropdown from "../components/SortingDropdown";
 import MobileFilter from "../components/MobileFilter";
 
-import logo from "../assets/ph-icon.png";
 import { BsHeart } from "react-icons/bs";
 
 function Products({ category }) {
@@ -288,16 +288,7 @@ function Products({ category }) {
   };
 
   if (isLoading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center bg-primary text-secondary z-50">
-        <img
-          src={logo}
-          alt="logo perfect harmony"
-          className="motion-reduce:animate-spin"
-          width={150}
-        />
-      </div>
-    );
+    return <LoadingScreen />;
   } else {
     return (
       <div className="relative mt-36 w-screen min-h-screen mx-auto flex justify-end">

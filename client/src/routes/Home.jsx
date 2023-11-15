@@ -20,6 +20,7 @@ import {
   PiMedalLight,
 } from "react-icons/pi";
 
+import LoadingScreen from "../components/LoadingScreen";
 import InstrumentsGallery from "../components/InstrumentsGallery";
 import LogoSlider from "../components/LogoSlider";
 
@@ -72,17 +73,8 @@ function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-   if (isLoading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center bg-primary text-secondary z-50">
-        <img
-          src={logo}
-          alt="logo perfect harmony"
-          className="motion-reduce:animate-spin"
-         width={150}
-        />
-      </div>
-    );
+  if (isLoading) {
+    return <LoadingScreen />;
   } else {
     return (
       <div className="w-screen overflow-x-hidden">
