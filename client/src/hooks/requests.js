@@ -13,6 +13,17 @@ async function httpGetAllProducts() {
   }
 }
 
+async function httpGetProductById(id) {
+  try {
+    const response = await axios.get(`${API_URL}/products/id/${id}`);
+
+    return response;
+  } catch (error) {
+    console.log("Request error:", error);
+    return [];
+  }
+}
+
 async function httpGetSpecificProducts(productType) {
   try {
     const response = await axios.get(`${API_URL}/products/type/${productType}`);
@@ -35,4 +46,9 @@ async function httpGetSpecificCategory(category) {
   }
 }
 
-export { httpGetAllProducts, httpGetSpecificProducts, httpGetSpecificCategory };
+export {
+  httpGetAllProducts,
+  httpGetProductById,
+  httpGetSpecificProducts,
+  httpGetSpecificCategory,
+};

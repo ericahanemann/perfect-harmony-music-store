@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 import {
   httpGetAllProducts,
+  httpGetProductById,
   httpGetSpecificProducts,
   httpGetSpecificCategory,
 } from "./requests";
 
 function useProducts() {
   const [allStockProducts, setAllStockProducts] = useState([]);
+  const [productIdRequired, setProductIdRequired] = useState([]);
   const [specificProductsRequired, setSpecificProductsRequired] = useState([]);
   const [specificCategoryRequired, setSpecificCategoryRequired] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -16,6 +18,15 @@ function useProducts() {
 
     const stockProducts = await httpGetAllProducts();
     setAllStockProducts(stockProducts.data);
+
+    setIsLoading(false);
+  }, []);
+
+  const getProductById = useCallback(async (id) => {
+    setIsLoading(true);
+
+    const productRequired = await httpGetProductById(id);
+    setProductIdRequired(productRequired.data);
 
     setIsLoading(false);
   }, []);
@@ -49,6 +60,9 @@ function useProducts() {
     allStockProducts,
     setAllStockProducts,
     getAllProducts,
+    productIdRequired,
+    setProductIdRequired,
+    getProductById,
     specificCategoryRequired,
     setSpecificCategoryRequired,
     getSpecificCategory,

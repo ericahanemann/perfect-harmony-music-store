@@ -34,29 +34,28 @@ function InstrumentsGallery({ specificProductsRequired }) {
   };
 
   const productsToBeDisplayed = specificProductsRequired
-  .filter((productItem, index) => {
-    return (
-      specificProductsRequired.findIndex(
-        (item) => item.name === productItem.name
-      ) === index
-    );
-  })
-  .slice(0, 4)
-  .map((item, index) => {
-    return (
-      <InstrumentsGalleryItem
-        key={item.id}
-        id={item.id}
-        index={index}
-        name={item.name}
-        img={item.colorsAvailable[0].images[0]}
-        onClick={() => {
-          handleClickInstrument(item.id);
-        }}
-      />
-    );
-  });
-
+    .filter((productItem, index) => {
+      return (
+        specificProductsRequired.findIndex(
+          (item) => item.name === productItem.name
+        ) === index
+      );
+    })
+    .slice(0, 4)
+    .map((item, index) => {
+      return (
+        <InstrumentsGalleryItem
+          key={item.id}
+          id={item.id}
+          index={index}
+          name={item.name}
+          img={item.colorsAvailable[0].images[0]}
+          onClick={() => {
+            handleClickInstrument(item.id);
+          }}
+        />
+      );
+    });
 
   const colorSelector = instrumentDisplayed.colorsAvailable.map(
     (productColor, productIndex) => {
@@ -124,7 +123,7 @@ function InstrumentsGallery({ specificProductsRequired }) {
 
         <div className="absolute inset-x-0 bottom-0 text-primary z-20 flex md:left-2/3 md:right-0 lg:left-3/4">
           <button className="flex-1 py-4 px-6 uppercase font-semibold bg-highlights text-textcolor hover:bg-primary md:flex-auto md:py-4 md:px-2">
-            <Link to="/">More info</Link>
+            <Link to={`/products/id/${instrumentDisplayed.id}`}>More info</Link>
           </button>
           <button className="flex-1 py-4 px-6 uppercase font-semibold bg-secondary text-textcolor hover:bg-secondarylight md:flex-auto md:py-4 md:px-2">
             Add to chart

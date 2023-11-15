@@ -4,6 +4,19 @@ function getAllProducts(req, res) {
   return res.status(200).json(stockProducts);
 }
 
+function getProductById(req, res) {
+  const id = req.params.id;
+  let productRequired;
+
+  stockProducts.map((product) => {
+    if (product.id == id) {
+      productRequired = product
+    }
+  });
+
+  return res.status(200).json(productRequired);
+}
+
 function getSpecificProduct(req, res) {
   const productType = req.params.productType;
   let productsRequired = [];
@@ -49,6 +62,7 @@ function searchProducts(req, res) {
 
 module.exports = {
   getAllProducts,
+  getProductById,
   getSpecificProduct,
   getSpecificCategory,
   searchProducts,
