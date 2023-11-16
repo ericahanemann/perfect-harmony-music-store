@@ -325,6 +325,12 @@ function Products({ category }) {
             >
               <div>Keyboard</div>
             </NavLink>
+            <NavLink
+              to="../products/accessories"
+              className={({ isActive }) => (isActive ? "text-secondary" : "")}
+            >
+              <div>Accessories</div>
+            </NavLink>
           </div>
 
           <div className="flex flex-col items-start self-start">
