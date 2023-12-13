@@ -10,7 +10,7 @@ function getProductById(req, res) {
 
   stockProducts.map((product) => {
     if (product.id == id) {
-      productRequired = product
+      productRequired = product;
     }
   });
 
@@ -22,7 +22,7 @@ function getSpecificProduct(req, res) {
   let productsRequired = [];
 
   stockProducts.map((product) => {
-    if (product.type == productType) {
+    if (product.type.toUpperCase() == productType.toUpperCase()) {
       productsRequired.push(product);
     }
   });
@@ -35,7 +35,7 @@ function getSpecificCategory(req, res) {
   let categoryRequired = [];
 
   stockProducts.map((product) => {
-    if (product.category == category) {
+    if (product.category.toUpperCase() == category.toUpperCase()) {
       categoryRequired.push(product);
     }
   });

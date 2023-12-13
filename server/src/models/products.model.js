@@ -5,11 +5,38 @@ const stockProducts = [
     type: "Guitar",
     brand: "Fender",
     name: "CLASSIC VIBE '50S STRATOCASTER®",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#ff0000",
     images: [
       "stratocaster-red.png",
-      "stratocaster-red.png",
+      "stratocaster-whiteblonde.png",
       "stratocaster-red.png",
       "stratocaster-red.png",
     ],
@@ -34,6 +61,24 @@ const stockProducts = [
     unitPrice: 1300,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 2,
@@ -41,7 +86,34 @@ const stockProducts = [
     type: "Guitar",
     brand: "Fender",
     name: "CLASSIC VIBE '50S STRATOCASTER®",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#fff",
     images: [
       "stratocaster-whiteblonde.png",
@@ -70,6 +142,24 @@ const stockProducts = [
     unitPrice: 1300,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 3,
@@ -77,7 +167,34 @@ const stockProducts = [
     type: "Guitar",
     brand: "Fender",
     name: "CLASSIC VIBE '50S STRATOCASTER®",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#3f1e00",
     images: [
       "stratocaster-sunburst.png",
@@ -107,6 +224,24 @@ const stockProducts = [
     unitPrice: 1300,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 4,
@@ -114,7 +249,34 @@ const stockProducts = [
     type: "Guitar",
     brand: "Fender",
     name: "CLASSIC VIBE '50S STRATOCASTER®",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#000",
     images: [
       "stratocaster-black.png",
@@ -143,6 +305,24 @@ const stockProducts = [
     unitPrice: 1300,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 5,
@@ -150,7 +330,34 @@ const stockProducts = [
     type: "Guitar",
     brand: "Fender",
     name: "PLAYER PLUS METEORA® HH",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#999",
     images: [
       "meteora-silverburst.png",
@@ -183,6 +390,24 @@ const stockProducts = [
     unitPrice: 1300,
     stockAmount: 12,
     createdAt: new Date(2023, 11, 1, 12, 0, 0),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 6,
@@ -190,7 +415,34 @@ const stockProducts = [
     type: "Guitar",
     brand: "Fender",
     name: "PLAYER PLUS METEORA® HH",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#00ff00",
     images: [
       "meteora-cosmicjade.png",
@@ -223,6 +475,24 @@ const stockProducts = [
     unitPrice: 1500,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 7,
@@ -230,7 +500,34 @@ const stockProducts = [
     type: "Guitar",
     brand: "Fender",
     name: "PLAYER PLUS METEORA® HH",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#ff0000",
     images: [
       "meteora-red.png",
@@ -263,6 +560,24 @@ const stockProducts = [
     unitPrice: 1500,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 8,
@@ -270,7 +585,34 @@ const stockProducts = [
     type: "Guitar",
     brand: "Fender",
     name: "PLAYER PLUS METEORA® HH",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#3f1e00",
     images: [
       "meteora-sunburst.png",
@@ -303,6 +645,24 @@ const stockProducts = [
     unitPrice: 1500,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 9,
@@ -310,7 +670,34 @@ const stockProducts = [
     type: "Guitar",
     brand: "Fender",
     name: "PLAYER PLUS METEORA® HH",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#0000ff",
     images: [
       "meteora-belairblue.png",
@@ -343,6 +730,24 @@ const stockProducts = [
     unitPrice: 1500,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 10,
@@ -350,7 +755,34 @@ const stockProducts = [
     type: "Guitar",
     brand: "Gibson",
     name: "Les Paul Classic",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#f1d500",
     images: [
       "lespaul-honeyburst.png",
@@ -379,6 +811,24 @@ const stockProducts = [
     unitPrice: 2000,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 11,
@@ -386,7 +836,34 @@ const stockProducts = [
     type: "Guitar",
     brand: "Gibson",
     name: "Les Paul Classic",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#c20000",
     images: [
       "lespaul-cherry.png",
@@ -415,6 +892,24 @@ const stockProducts = [
     unitPrice: 2000,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 12,
@@ -422,7 +917,34 @@ const stockProducts = [
     type: "Guitar",
     brand: "Gibson",
     name: "Les Paul Classic",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#f1962f",
     images: [
       "lespaul-cherrysunburst.png",
@@ -451,6 +973,24 @@ const stockProducts = [
     unitPrice: 2000,
     stockAmount: 12,
     createdAt: new Date(2023, 0, 1, 12, 0, 0),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 13,
@@ -458,7 +998,34 @@ const stockProducts = [
     type: "Guitar",
     brand: "Gibson",
     name: "Les Paul Classic",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#000",
     images: [
       "lespaul-ebony.png",
@@ -487,6 +1054,24 @@ const stockProducts = [
     unitPrice: 2000,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 14,
@@ -494,7 +1079,34 @@ const stockProducts = [
     type: "Guitar",
     brand: "Gibson",
     name: "Dave Mustaine Flying V EXP",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#999",
     images: [
       "flyingv-silver.png",
@@ -515,6 +1127,24 @@ const stockProducts = [
     unitPrice: 1800,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 15,
@@ -522,7 +1152,34 @@ const stockProducts = [
     type: "Guitar",
     brand: "Gibson",
     name: "Dave Mustaine Flying V EXP",
-    description: "very good guitar",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#f1962f",
     images: ["flyingv-antiquenatural.png"],
     colorsAvailable: [
@@ -538,6 +1195,24 @@ const stockProducts = [
     unitPrice: 1800,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The guitar is awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The guitar is really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest guitar ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 16,
@@ -545,7 +1220,34 @@ const stockProducts = [
     type: "Drums",
     brand: "Gibson",
     name: "drums 1",
-    description: "very good drums",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#ff0000",
     images: [
       "stratocaster-red.png",
@@ -574,6 +1276,24 @@ const stockProducts = [
     unitPrice: 3000,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The drums are awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The drums are really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest drums ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 17,
@@ -581,7 +1301,34 @@ const stockProducts = [
     type: "Drums",
     brand: "Gibson",
     name: "drums 1",
-    description: "very good drums",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#fff",
     images: [
       "stratocaster-whiteblonde.png",
@@ -610,6 +1357,24 @@ const stockProducts = [
     unitPrice: 3000,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The drums are awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The drums are really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest drums ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 18,
@@ -617,7 +1382,34 @@ const stockProducts = [
     type: "Drums",
     brand: "Gibson",
     name: "drums 1",
-    description: "very good drums",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#3f1e00",
     images: [
       "stratocaster-sunburst.png",
@@ -646,6 +1438,24 @@ const stockProducts = [
     unitPrice: 3000,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The drums are awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The drums are really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest drums ever! Just bought it to decorate my room",
+      },
+    ],
   },
   {
     id: 19,
@@ -653,7 +1463,34 @@ const stockProducts = [
     type: "Drums",
     brand: "Gibson",
     name: "drums 1",
-    description: "very good drums",
+    description:
+      "A celebration of the birth of the Strat® in the 1950s, the Classic Vibe '50s Stratocaster creates incredible tone courtesy of a trio of Fender-Designed alnico single-coil pickups. Player-friendly features include a slim, comfortable C-shaped neck profile with an easy-playing 9.5-radius fingerboard and narrow-tall frets, as well as a vintage-style tremolo system for expressive string bending effects. This throwback Squier model also features 1950s-inspired headstock markings, rich-looking nickel-plated hardware and a slick vintage-tint gloss neck finish for an old-school vibe.",
+    specs: [
+      {
+        title: "Body Material",
+        specDescription: "Nyatoh",
+      },
+      {
+        title: "Body Shape",
+        specDescription: "Stratocaster®",
+      },
+      {
+        title: "Body Finish",
+        specDescription: "Gloss Polyurethane",
+      },
+      {
+        title: "Neck Material",
+        specDescription: "Maple",
+      },
+      {
+        title: "Neck Finish",
+        specDescription: "Tinted Gloss Urethane",
+      },
+      {
+        title: "Neck Shape",
+        specDescription: '"C" Shape',
+      },
+    ],
     color: "#000",
     images: [
       "stratocaster-black.png",
@@ -682,6 +1519,24 @@ const stockProducts = [
     unitPrice: 3000,
     stockAmount: 12,
     createdAt: new Date(),
+    reviews: [
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment:
+          "Perfect! The drums are awesome, great sound, nice design! super worth it!",
+      },
+      {
+        client: "Anonymous",
+        stars: 4.5,
+        comment: "The drums are really nice but i can't play anything :(",
+      },
+      {
+        client: "Biggest Rock Star",
+        stars: 4,
+        comment: "Coolest drums ever! Just bought it to decorate my room",
+      },
+    ],
   },
 ];
 

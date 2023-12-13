@@ -7,6 +7,8 @@ function InstrumentsGallery({ specificProductsRequired }) {
   const [instrumentDisplayed, setInstrumentDisplayed] = useState(
     specificProductsRequired[0]
   );
+  console.log(specificProductsRequired[0]);
+  console.log(instrumentDisplayed);
   const [instrumentDisplayedImage, setInstrumentDisplayedImage] = useState(
     instrumentDisplayed.colorsAvailable[0].images[0]
   );
@@ -122,9 +124,13 @@ function InstrumentsGallery({ specificProductsRequired }) {
         </div>
 
         <div className="absolute inset-x-0 bottom-0 text-primary z-20 flex md:left-2/3 md:right-0 lg:left-3/4">
-          <button className="flex-1 py-4 px-6 uppercase font-semibold bg-highlights text-textcolor hover:bg-primary md:flex-auto md:py-4 md:px-2">
-            <Link to={`/products/id/${instrumentDisplayed.id}`}>More info</Link>
-          </button>
+          <Link
+            to={`/products/id/${instrumentDisplayed.id}`}
+            className="flex-1 flex justify-center py-4 px-6 bg-highlights text-textcolor hover:bg-primary md:flex-auto md:py-4 md:px-2"
+          >
+            <button className="uppercase font-semibold">More info</button>
+          </Link>
+
           <button className="flex-1 py-4 px-6 uppercase font-semibold bg-secondary text-textcolor hover:bg-secondarylight md:flex-auto md:py-4 md:px-2">
             Add to chart
           </button>

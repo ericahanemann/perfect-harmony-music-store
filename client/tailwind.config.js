@@ -12,6 +12,7 @@ export default {
         secondarylight: "var(--color-secondary-light)",
         textcolor: "var(--color-text)",
         highlights: "var(--color-highlights)",
+        highlightsLight: "var(--color-highlights-light)",
       },
       dropShadow: {
         "3xl": "0 15px 15px rgb(0 0 0 / 0.2)",
