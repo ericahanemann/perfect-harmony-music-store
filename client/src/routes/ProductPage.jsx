@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useProducts from "../hooks/useProducts";
 
 import LoadingScreen from "../components/LoadingScreen";
@@ -8,7 +8,12 @@ import { BsBoxSeam, BsFillStarFill, BsDash, BsPlus } from "react-icons/bs";
 
 function ProductPage() {
   const { id } = useParams();
-  const { isLoading, productIdRequired, getProductById } = useProducts();
+  const {
+    isLoading,
+    productIdRequired,
+    getProductById,
+    specificProductsRequired,
+  } = useProducts();
   const [activeImgPath, setActiveImgPath] = useState("");
   const [activeInfo, setActiveInfo] = useState("desc");
   const [numberReviewsToBeDisplayed, setNumberReviewsToBeDisplayed] =
@@ -26,34 +31,34 @@ function ProductPage() {
     }
   }, [isLoading, productIdRequired]);
 
-  const handleInfoOptionClick = (optionName) => {
-    if (optionName == "specs") {
-      setActiveInfo("specs");
-    } else {
-      if (activeInfo != "desc") {
-        setActiveInfo("desc");
-      }
-    }
-  };
-
-  const handleProductsToAdd = (operation) => {
-    if (
-      operation == 1 &&
-      productsToAddCounter < productIdRequired.stockAmount
-    ) {
-      setProductsToAddCounter(productsToAddCounter + 1);
-    } else if (operation == -1 && productsToAddCounter > 1) {
-      setProductsToAddCounter(productsToAddCounter - 1);
-    }
-  };
-
-  const handleColorClick = (colorClicked) => {
-    //
-  };
-
   if (isLoading) {
     return <LoadingScreen />;
-  } else {
+  } else if (!isLoading && productIdRequired) {
+    const handleProductsToAdd = (operation) => {
+      if (
+        operation == 1 &&
+        productsToAddCounter < productIdRequired.stockAmount
+      ) {
+        setProductsToAddCounter(productsToAddCounter + 1);
+      } else if (operation == -1 && productsToAddCounter > 1) {
+        setProductsToAddCounter(productsToAddCounter - 1);
+      }
+    };
+
+    const handleInfoOptionClick = (optionName) => {
+      if (optionName == "specs") {
+        setActiveInfo("specs");
+      } else {
+        if (activeInfo != "desc") {
+          setActiveInfo("desc");
+        }
+      }
+    };
+
+    const handleShowAllReviewsClick = () => {
+      setNumberReviewsToBeDisplayed(productIdRequired.reviews.length);
+    };
+
     const renderedSecondaryImages = productIdRequired.images.map(
       (imagePath, imageIndex) => {
         const path = `../../${imagePath}`;
@@ -83,23 +88,32 @@ function ProductPage() {
             ? "border-secondary"
             : "border-textcolor"
         } hover:border-secondary hover:cursor-pointer`;
+
+        let productColorClickedId;
+        specificProductsRequired.forEach((product) => {
+          if (
+            product.color == productColor.color &&
+            product.name.toUpperCase() == productIdRequired.name.toUpperCase()
+          ) {
+            productColorClickedId = product.id;
+          }
+        });
         return (
-          <div
+          <Link
+            to={`/products/id/${productColorClickedId}`}
             key={colorId}
             id={productIndex}
             className={colorStyle}
             style={{ backgroundColor: productColor.color }}
-            onClick={() => {
-              handleColorClick(productColor.color);
-            }}
-          ></div>
+          ></Link>
         );
       }
     );
 
     const ratings = productIdRequired.reviews.map((review) => review.stars);
-    const averageRating =
-      ratings.reduce((acc, valor) => acc + valor, 0) / ratings.length;
+    const averageRating = (
+      ratings.reduce((acc, valor) => acc + valor, 0) / ratings.length
+    ).toFixed(1);
 
     const renderedReviews = productIdRequired.reviews
       .slice(0, numberReviewsToBeDisplayed)
@@ -132,10 +146,6 @@ function ProductPage() {
         );
       }
     );
-
-    const handleShowAllReviewsClick = () => {
-      setNumberReviewsToBeDisplayed(productIdRequired.reviews.length);
-    };
 
     return (
       <div className="mt-64 min-h-screen px-32">

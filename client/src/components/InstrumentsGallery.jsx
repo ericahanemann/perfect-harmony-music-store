@@ -7,8 +7,6 @@ function InstrumentsGallery({ specificProductsRequired }) {
   const [instrumentDisplayed, setInstrumentDisplayed] = useState(
     specificProductsRequired[0]
   );
-  console.log(specificProductsRequired[0]);
-  console.log(instrumentDisplayed);
   const [instrumentDisplayedImage, setInstrumentDisplayedImage] = useState(
     instrumentDisplayed.colorsAvailable[0].images[0]
   );
@@ -29,10 +27,21 @@ function InstrumentsGallery({ specificProductsRequired }) {
     });
   };
 
-  const handleColorClick = (colorId) => {
-    setInstrumentDisplayedImage(
-      instrumentDisplayed.colorsAvailable[colorId].images[0]
-    );
+  const handleColorClick = (colorData) => {
+    specificProductsRequired.forEach((product) => {
+      if (
+        product.color == colorData.color &&
+        product.name.toUpperCase() == instrumentDisplayed.name.toUpperCase()
+      ) {
+        setInstrumentDisplayed(product);
+
+        product.colorsAvailable.forEach((colorAvailable) => {
+          if (colorAvailable.color == colorData.color) {
+            setInstrumentDisplayedImage(colorAvailable.images[0]);
+          }
+        });
+      }
+    });
   };
 
   const productsToBeDisplayed = specificProductsRequired
@@ -70,7 +79,7 @@ function InstrumentsGallery({ specificProductsRequired }) {
           className={colorStyle}
           style={{ backgroundColor: productColor.color }}
           onClick={() => {
-            handleColorClick(colorId);
+            handleColorClick(productColor);
           }}
         ></div>
       );

@@ -78,6 +78,11 @@ const stockProducts = [
         stars: 4,
         comment: "Coolest guitar ever! Just bought it to decorate my room",
       },
+      {
+        client: "Anonymous",
+        stars: 5,
+        comment: "Sick guitar bro!",
+      },
     ],
   },
   {

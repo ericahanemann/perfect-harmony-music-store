@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useProducts from "../hooks/useProducts";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import LoadingScreen from "../components/LoadingScreen";
 import SortingDropdown from "../components/SortingDropdown";
 import MobileFilter from "../components/MobileFilter";
@@ -180,7 +180,8 @@ function Products({ category }) {
       .slice(0, numberItemsToBeDisplayed)
       .map((product, index) => {
         return (
-          <div
+          <Link
+            to={`/products/id/${product.id}`}
             key={index}
             className="flex flex-col w-3/4 h-96 justify-between items-start md:w-2/5 lg:w-1/4"
           >
@@ -201,7 +202,7 @@ function Products({ category }) {
               </h4>
               <p>R${product.unitPrice}</p>
             </div>
-          </div>
+          </Link>
         );
       })
   );
