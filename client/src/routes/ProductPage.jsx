@@ -33,7 +33,7 @@ function ProductPage() {
 
   if (isLoading) {
     return <LoadingScreen />;
-  } else if (!isLoading && productIdRequired) {
+  } else if (!isLoading && productIdRequired != undefined) {
     const handleProductsToAdd = (operation) => {
       if (
         operation == 1 &&
@@ -148,9 +148,9 @@ function ProductPage() {
     );
 
     return (
-      <div className="mt-64 min-h-screen px-32">
-        <section className="flex w-screen">
-          <div className="w-1/2 flex justify-center bg-highlights">
+      <div className="mt-64 min-h-screen lg:px-32">
+        <section className="flex flex-col w-screen lg:flex-row">
+          <div className="w-full mx-4 flex justify-center bg-highlights lg:w-1/2 lg:mx-0">
             <div className="w-1/5 flex flex-col justify-start">
               {renderedSecondaryImages}
             </div>
@@ -162,7 +162,7 @@ function ProductPage() {
             </div>
           </div>
 
-          <div className="w-1/2 flex flex-col gap-4 mx-12">
+          <div className="w-screen flex flex-col gap-4 mx-4 my-8 lg:w-1/2 lg:mx-12 lg:my-0">
             <h2 className="text-3xl font-bold">{productIdRequired.name}</h2>
 
             <div>
@@ -185,38 +185,38 @@ function ProductPage() {
             )}
 
             <div className="flex flex-col">
-              <div className="w-1/2 flex gap-8">
-                <div className="w-1/3 flex justify-center items-center gap-4 border my-4">
+              <div className="w-1/2 flex flex-col md:flex-row lg:gap-8">
+                <div className="w-screen flex justify-start items-center my-4 md:w-1/3">
                   <button
                     onClick={() => handleProductsToAdd(-1)}
-                    className="w-full h-full flex justify-center items-center border border-highlights"
+                    className="w-full h-full flex justify-center items-center border border-highlights py-5 px-2"
                   >
                     <BsDash></BsDash>
                   </button>
-                  <span className="w-12 flex justify-center">
+                  <span className="w-2/3 h-full p-4 flex justify-center items-center border border-highlights">
                     {productsToAddCounter}
                   </span>
                   <button
                     onClick={() => handleProductsToAdd(1)}
-                    className="w-full h-full flex justify-center items-center border border-highlights"
+                    className="w-full h-full flex justify-center items-center border border-highlights py-5 px-2"
                   >
                     <BsPlus></BsPlus>
                   </button>
                 </div>
 
-                <button className="w-2/3 p-4 my-4 bg-highlights border border-highlights uppercase hover:bg-highlightsLight hover:border hover:border-highlightsLight">
+                <button className="w-screen p-4 my-4 bg-highlights border border-highlights uppercase hover:bg-highlightsLight hover:border hover:border-highlightsLight">
                   add to cart
                 </button>
               </div>
 
-              <button className="w-1/2 p-4 my-4 bg-secondary uppercase hover:bg-secondarylight">
+              <button className="w-screen p-4 my-4 bg-secondary uppercase hover:bg-secondarylight md:w-1/2">
                 buy now
               </button>
             </div>
           </div>
         </section>
 
-        <section className="mt-32">
+        <section className="mt-32 mx-4 lg:mx-0">
           <div className="flex gap-4 my-4 uppercase font-bold border-b border-textcolor">
             <h4
               className={
@@ -249,13 +249,13 @@ function ProductPage() {
           )}
         </section>
 
-        <section className="my-32">
+        <section className="my-32 mx-4 lg:mx-0">
           <h4 className="uppercase font-bold border-b border-textcolor">
             reviews
           </h4>
 
-          <div className="w-screen flex gap-12">
-            <div className="w-1/3 h-48 mt-12 bg-highlights flex flex-col justify-center items-center py-12">
+          <div className="w-screen flex flex-col gap-12 lg:flex-row">
+            <div className="w-screen h-48 mt-12 bg-highlights flex flex-col justify-center items-center py-12 lg:w-1/3">
               <div className="flex gap-2 text-2xl">
                 <BsFillStarFill></BsFillStarFill>
                 {averageRating}
@@ -267,7 +267,7 @@ function ProductPage() {
               </div>
             </div>
 
-            <div className="w-1/3 mt-12 flex flex-col gap-8">
+            <div className="w-screen mt-12 flex flex-col gap-8 lg:w-1/3">
               {renderedReviews}
 
               {productIdRequired.reviews.length >
