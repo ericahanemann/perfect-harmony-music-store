@@ -46,9 +46,59 @@ async function httpGetSpecificCategory(category) {
   }
 }
 
+async function httpGetCartProducts() {
+  try {
+    const response = await axios.get(`${API_URL}/cart/all`);
+
+    return response;
+  } catch (error) {
+    console.log("Request error:", error);
+    return [];
+  }
+}
+
+async function httpAddProductToCart(id, amount) {
+  try {
+    const response = await axios.post(`${API_URL}/cart/add/${id}`, { amount });
+
+    return response;
+  } catch (error) {
+    console.log("Request error:", error);
+    return [];
+  }
+}
+
+async function httpUpdateCartProductAmount(id, amount) {
+  try {
+    const response = await axios.post(`${API_URL}/cart/update/${id}`, {
+      amount,
+    });
+
+    return response;
+  } catch (error) {
+    console.log("Request error:", error);
+    return [];
+  }
+}
+
+async function httpRemoveProductFromCart(id) {
+  try {
+    const response = await axios.get(`${API_URL}/cart/remove/${id}`);
+
+    return response;
+  } catch (error) {
+    console.log("Request error:", error);
+    return [];
+  }
+}
+
 export {
   httpGetAllProducts,
   httpGetProductById,
   httpGetSpecificProducts,
   httpGetSpecificCategory,
+  httpGetCartProducts,
+  httpAddProductToCart,
+  httpUpdateCartProductAmount,
+  httpRemoveProductFromCart,
 };

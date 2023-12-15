@@ -6,14 +6,14 @@ function showCartProducts(req, res) {
 }
 
 function addProductToCart(req, res) {
-  const id = req.body.id;
-  const colorSelected = req.body.colorSelected;
+  const id = req.params.id;
   const amount = req.body.amount;
 
   const productToBeAdded = stockProducts.find((product) => product.id === id);
   cart.push({
+    productId: id,
     productName: productToBeAdded.name,
-    colorSelected: colorSelected,
+    colorSelected: productToBeAdded.color,
     unitPrice: productToBeAdded.unitPrice,
     amount: amount,
   });
@@ -22,7 +22,7 @@ function addProductToCart(req, res) {
 }
 
 function removeProductFromCart(req, res) {
-  const id = req.body.id;
+  const id = req.params.id;
 
   const productToBeRemoved = stockProducts.find((product) => product.id === id);
   const newCart = cart.filter((product) => product.id !== id);
@@ -33,7 +33,7 @@ function removeProductFromCart(req, res) {
 }
 
 function updateProductAmount(req, res) {
-  const id = req.body.id;
+  const id = req.params.id;
   const amount = req.body.amount;
 
   cart.forEach((product) => {
