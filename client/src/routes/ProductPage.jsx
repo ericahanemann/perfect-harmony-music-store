@@ -3,8 +3,10 @@ import { Link, useParams } from "react-router-dom";
 import useProducts from "../hooks/useProducts";
 
 import LoadingScreen from "../components/LoadingScreen";
+import Cart from "../components/Cart";
 
 import { BsBoxSeam, BsFillStarFill, BsDash, BsPlus } from "react-icons/bs";
+import useCart from "../hooks/useCart";
 
 function ProductPage() {
   const { id } = useParams();
@@ -14,11 +16,13 @@ function ProductPage() {
     getProductById,
     specificProductsRequired,
   } = useProducts();
+  const { addProductToCart } = useCart();
   const [activeImgPath, setActiveImgPath] = useState("");
   const [activeInfo, setActiveInfo] = useState("desc");
   const [numberReviewsToBeDisplayed, setNumberReviewsToBeDisplayed] =
     useState(3);
   const [productsToAddCounter, setProductsToAddCounter] = useState(1);
+  const [showCart, setShowCart] = useState(false);
 
   useEffect(() => {
     getProductById(id);
@@ -30,6 +34,14 @@ function ProductPage() {
       setActiveImgPath(`../../${productIdRequired.images[0]}`);
     }
   }, [isLoading, productIdRequired]);
+
+  const handleAddToCartClick = () => {
+    addProductToCart(productIdRequired.id, productsToAddCounter);
+
+    setTimeout(() => {
+      setShowCart(true);
+    }, 300);
+  };
 
   if (isLoading) {
     return <LoadingScreen />;
@@ -149,6 +161,8 @@ function ProductPage() {
 
     return (
       <div className="mt-64 min-h-screen lg:px-32">
+        {showCart && <Cart showCart={showCart} setShowCart={setShowCart} />}
+
         <section className="flex flex-col w-screen lg:flex-row">
           <div className="w-full mx-4 flex justify-center bg-highlights lg:w-1/2 lg:mx-0">
             <div className="w-1/5 flex flex-col justify-start">
@@ -204,7 +218,12 @@ function ProductPage() {
                   </button>
                 </div>
 
-                <button className="w-screen p-4 my-4 bg-highlights border border-highlights uppercase hover:bg-highlightsLight hover:border hover:border-highlightsLight">
+                <button
+                  className="w-screen p-4 my-4 bg-highlights border border-highlights uppercase hover:bg-highlightsLight hover:border hover:border-highlightsLight"
+                  onClick={() => {
+                    handleAddToCartClick();
+                  }}
+                >
                   add to cart
                 </button>
               </div>

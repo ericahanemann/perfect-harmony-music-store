@@ -25,6 +25,7 @@ import InstrumentsGallery from "../components/InstrumentsGallery";
 import LogoSlider from "../components/LogoSlider";
 
 import useProducts from "../hooks/useProducts";
+import Cart from "../components/Cart";
 
 function Home() {
   const { isLoading, specificProductsRequired } = useProducts();
@@ -44,6 +45,8 @@ function Home() {
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
+
+  const [showCart, setShowCart] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -78,6 +81,8 @@ function Home() {
   } else {
     return (
       <div className="w-screen overflow-x-hidden">
+        {showCart && <Cart showCart={showCart} setShowCart={setShowCart} />}
+        
         <section className="relative h-screen flex flex-col items-center lg:flex-row lg:justify-between">
           <div className="absolute inset-0 z-20 flex flex-col justify-around items-center bg-primary opacity-70 lg:hidden"></div>
           <div className="absolute inset-x-0 top-36 bottom-0 z-20 flex flex-col justify-center items-center lg:static lg:mt-16 lg:w-2/6 lg:mx-auto">
@@ -113,6 +118,7 @@ function Home() {
         <section className="h-screen mt-32 flex justify-center items-center">
           <InstrumentsGallery
             specificProductsRequired={specificProductsRequired}
+            setShowCart={setShowCart}
           />
         </section>
 
@@ -191,7 +197,7 @@ function Home() {
 
             <div className="flex flex-wrap gap-12 items-start justify-center w-full md:gap-6">
               <div className="flex flex-col items-center justify-center w-screen md:flex-1">
-                <PiTruckLight size={100}></PiTruckLight>
+                <PiTruckLight size={80}></PiTruckLight>
                 <h4 className="uppercase text-center mb-2 px-8 md:px-0 lg:text-lg">
                   fast delivery
                 </h4>
@@ -201,7 +207,7 @@ function Home() {
               </div>
 
               <div className="flex flex-col items-center justify-center w-screen md:flex-1">
-                <PiGuitarLight size={100}></PiGuitarLight>
+                <PiGuitarLight size={80}></PiGuitarLight>
                 <h4 className="uppercase text-center mb-2 px-8 md:px-0 lg:text-lg">
                   Wide Variety of Instruments
                 </h4>
@@ -211,7 +217,7 @@ function Home() {
               </div>
 
               <div className="flex flex-col items-center justify-center w-screen md:flex-1">
-                <PiWhatsappLogoLight size={100}></PiWhatsappLogoLight>
+                <PiWhatsappLogoLight size={80}></PiWhatsappLogoLight>
                 <h4 className="uppercase text-center mb-2 px-8 md:px-0 lg:text-lg">
                   WhatsApp support
                 </h4>
@@ -221,7 +227,7 @@ function Home() {
               </div>
 
               <div className="flex flex-col items-center justify-center w-screen md:flex-1">
-                <PiMedalLight size={100}></PiMedalLight>
+                <PiMedalLight size={80}></PiMedalLight>
                 <h4 className="uppercase text-center mb-2 px-8 md:px-0 lg:text-lg">
                   Quality Guarantee
                 </h4>

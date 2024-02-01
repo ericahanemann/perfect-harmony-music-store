@@ -18,6 +18,20 @@ export default {
         "3xl": "0 15px 15px rgb(0 0 0 / 0.2)",
         "5xl": "-35px 35px 65px rgb(255 255 255  / 0.4)",
       },
+      keyframes: {
+        slideIn: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        slideOut: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+      },
+      animation: {
+        slideIn: "slideIn 0.5s ease-in-out",
+        slideOut: "slideOut 0.5s ease-in-out",
+      },
     },
   },
   plugins: [],

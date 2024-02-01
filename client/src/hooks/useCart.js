@@ -8,43 +8,43 @@ import {
 
 function useCart() {
   const [allCartProducts, setAllCartProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingCart, setIsLoadingCart] = useState(true);
 
   const getCartProducts = useCallback(async () => {
-    setIsLoading(true);
+    setIsLoadingCart(true);
 
     const cartProducts = await httpGetCartProducts();
     setAllCartProducts(cartProducts.data);
 
-    setIsLoading(false);
+    setIsLoadingCart(false);
   }, []);
 
   const addProductToCart = useCallback(async (id, amount) => {
-    setIsLoading(true);
+    setIsLoadingCart(true);
 
     const productToAdd = await httpAddProductToCart(id, amount);
 
-    setIsLoading(false);
+    setIsLoadingCart(false);
 
     return productToAdd;
   }, []);
 
   const updateCartProductAmount = useCallback(async (id, amount) => {
-    setIsLoading(true);
+    setIsLoadingCart(true);
 
     const updatedProduct = await httpUpdateCartProductAmount(id, amount);
 
-    setIsLoading(false);
+    setIsLoadingCart(false);
 
     return updatedProduct;
   }, []);
 
   const removeProductFromCart = useCallback(async (id) => {
-    setIsLoading(true);
+    setIsLoadingCart(true);
 
     await httpRemoveProductFromCart(id);
 
-    setIsLoading(false);
+    setIsLoadingCart(false);
 
     return [];
   }, []);
@@ -59,7 +59,7 @@ function useCart() {
     addProductToCart,
     updateCartProductAmount,
     removeProductFromCart,
-    isLoading,
+    isLoadingCart,
   };
 }
 

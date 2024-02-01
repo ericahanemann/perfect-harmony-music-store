@@ -1,4 +1,4 @@
-const cart = require("../models/cart.model");
+let cart = require("../models/cart.model");
 const stockProducts = require("../models/products.model");
 
 function showCartProducts(req, res) {
@@ -9,12 +9,17 @@ function addProductToCart(req, res) {
   const id = req.params.id;
   const amount = req.body.amount;
 
-  const productToBeAdded = stockProducts.find((product) => product.id === id);
+  const productToBeAdded = stockProducts.find((product) => {
+    return product.id == id;
+  });
+
   cart.push({
     productId: id,
+    productImg: productToBeAdded.images[0],
     productName: productToBeAdded.name,
     colorSelected: productToBeAdded.color,
     unitPrice: productToBeAdded.unitPrice,
+    stockAmount: productToBeAdded.stockAmount,
     amount: amount,
   });
 
@@ -24,8 +29,9 @@ function addProductToCart(req, res) {
 function removeProductFromCart(req, res) {
   const id = req.params.id;
 
-  const productToBeRemoved = stockProducts.find((product) => product.id === id);
-  const newCart = cart.filter((product) => product.id !== id);
+  const productToBeRemoved = stockProducts.find((product) => product.id == id);
+  const newCart = cart.filter((product) => product.productId != id);
+  console.log(newCart);
 
   cart = newCart;
 
@@ -37,7 +43,7 @@ function updateProductAmount(req, res) {
   const amount = req.body.amount;
 
   cart.forEach((product) => {
-    if (product.id === id) {
+    if (product.id == id) {
       product.amount += amount;
     }
   });

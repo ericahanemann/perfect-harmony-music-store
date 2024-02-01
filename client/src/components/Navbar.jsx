@@ -3,9 +3,11 @@ import { NavLink } from "react-router-dom";
 import logo from "../assets/ph-icon.png";
 import { BsCart3, BsHeart, BsXLg } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
+import Cart from "../components/Cart";
 
 function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -13,6 +15,10 @@ function Navbar() {
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
+  };
+
+  const handleOpenCart = () => {
+    setShowCart(true);
   };
 
   return (
@@ -54,14 +60,13 @@ function Navbar() {
           >
             <BsHeart className="text-xl text-bold"></BsHeart>
           </NavLink>
-          <NavLink
-            to="/"
-            className={`${
-              isMobileMenuOpen ? "hidden" : "flex"
-            } align-middle hover:text-secondary ease-in-out duration-200`}
-          >
-            <BsCart3 className="text-xl text-bold"></BsCart3>
-          </NavLink>
+
+          <BsCart3
+            className="text-xl text-bold hover:cursor-pointer"
+            onClick={() => {
+              handleOpenCart();
+            }}
+          ></BsCart3>
 
           <button
             className="align-middle hover:text-secondary ease-in-out duration-200 lg:hidden"
@@ -139,6 +144,8 @@ function Navbar() {
           </div>
         </div>
       </div>
+
+      {showCart && <Cart showCart={showCart} setShowCart={setShowCart} />}
     </div>
   );
 }

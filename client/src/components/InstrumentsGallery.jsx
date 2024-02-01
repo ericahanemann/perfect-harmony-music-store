@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import InstrumentsGalleryItem from "./InstrumentsGalleryItem";
 import { BsHeart } from "react-icons/bs";
+import useCart from "../hooks/useCart";
 
-function InstrumentsGallery({ specificProductsRequired }) {
+function InstrumentsGallery({ specificProductsRequired, setShowCart }) {
+  const { addProductToCart } = useCart(0);
   const [instrumentDisplayed, setInstrumentDisplayed] = useState(
     specificProductsRequired[0]
   );
@@ -16,6 +18,14 @@ function InstrumentsGallery({ specificProductsRequired }) {
     backgroundSize: "cover",
     backgroundPosition: "left",
     opacity: 0.1,
+  };
+
+  const handleAddToCartClick = () => {
+    addProductToCart(instrumentDisplayed.id, 1);
+
+    setTimeout(() => {
+      setShowCart(true);
+    }, 300);
   };
 
   const handleClickInstrument = (instrumentClickedId) => {
@@ -140,8 +150,11 @@ function InstrumentsGallery({ specificProductsRequired }) {
             <button className="uppercase font-semibold">More info</button>
           </Link>
 
-          <button className="flex-1 py-4 px-6 uppercase font-semibold bg-secondary text-textcolor hover:bg-secondarylight md:flex-auto md:py-4 md:px-2">
-            Add to chart
+          <button
+            className="flex-1 py-4 px-6 uppercase font-semibold bg-secondary text-textcolor hover:bg-secondarylight md:flex-auto md:py-4 md:px-2"
+            onClick={handleAddToCartClick}
+          >
+            Add to cart
           </button>
         </div>
       </div>
