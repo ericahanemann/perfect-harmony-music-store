@@ -42,33 +42,33 @@ function Footer() {
 
           {expandedIndex == 1 && (
             <div className="flex flex-col lg:hidden">
-              <Link to="/" className="hover:text-primary">
-                Percussion
+              <Link to="/products/percussion" className="hover:text-primary">
+                <div>Percussion</div>
               </Link>
-              <Link to="/" className="hover:text-primary">
-                Stringed
+              <Link to="/products/stringed" className="hover:text-primary">
+                <div>Stringed</div>
               </Link>
-              <Link to="/" className="hover:text-primary">
-                Wind
+              <Link to="/products/wind" className="hover:text-primary">
+                <div>Wind</div>
               </Link>
-              <Link to="/" className="hover:text-primary">
-                Keyboard
+              <Link to="/products/keyboard" className="hover:text-primary">
+                <div>Keyboard</div>
               </Link>
             </div>
           )}
 
           <div className="hidden flex-col lg:flex">
-            <Link to="/" className="hover:text-primary">
-              Percussion
+            <Link to="/products/percussion" className="hover:text-primary">
+              <div>Percussion</div>
             </Link>
-            <Link to="/" className="hover:text-primary">
-              Stringed
+            <Link to="/products/stringed" className="hover:text-primary">
+              <div>Stringed</div>
             </Link>
-            <Link to="/" className="hover:text-primary">
-              Wind
+            <Link to="/products/wind" className="hover:text-primary">
+              <div>Wind</div>
             </Link>
-            <Link to="/" className="hover:text-primary">
-              Keyboard
+            <Link to="/products/keyboard" className="hover:text-primary">
+              <div>Keyboard</div>
             </Link>
           </div>
 
