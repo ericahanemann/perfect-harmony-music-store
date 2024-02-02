@@ -19,15 +19,19 @@ function useCart() {
     setIsLoadingCart(false);
   }, []);
 
-  const addProductToCart = useCallback(async (id, amount) => {
-    setIsLoadingCart(true);
+  const addProductToCart = useCallback(
+    async (id, amount) => {
+      setIsLoadingCart(true);
 
-    const productToAdd = await httpAddProductToCart(id, amount);
+      const productToAdd = await httpAddProductToCart(id, amount);
+      await getCartProducts();
 
-    setIsLoadingCart(false);
+      setIsLoadingCart(false);
 
-    return productToAdd;
-  }, []);
+      return productToAdd;
+    },
+    [getCartProducts]
+  );
 
   const updateCartProductAmount = useCallback(async (id, amount) => {
     setIsLoadingCart(true);
@@ -39,15 +43,19 @@ function useCart() {
     return updatedProduct;
   }, []);
 
-  const removeProductFromCart = useCallback(async (id) => {
-    setIsLoadingCart(true);
+  const removeProductFromCart = useCallback(
+    async (id) => {
+      setIsLoadingCart(true);
 
-    await httpRemoveProductFromCart(id);
+      await httpRemoveProductFromCart(id);
+      await getCartProducts();
 
-    setIsLoadingCart(false);
+      setIsLoadingCart(false);
 
-    return [];
-  }, []);
+      return [];
+    },
+    [getCartProducts]
+  );
 
   useEffect(() => {
     getCartProducts();

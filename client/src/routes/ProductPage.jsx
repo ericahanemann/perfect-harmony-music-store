@@ -16,7 +16,8 @@ function ProductPage() {
     getProductById,
     specificProductsRequired,
   } = useProducts();
-  const { addProductToCart } = useCart();
+  const { addProductToCart, updateCartProductAmount, allCartProducts } =
+    useCart();
   const [activeImgPath, setActiveImgPath] = useState("");
   const [activeInfo, setActiveInfo] = useState("desc");
   const [numberReviewsToBeDisplayed, setNumberReviewsToBeDisplayed] =
@@ -26,8 +27,10 @@ function ProductPage() {
 
   useEffect(() => {
     getProductById(id);
-    window.scrollTo(0, 0);
-  }, [getProductById, id]);
+    if (!isLoading) {
+      window.scrollTo(0, 0);
+    }
+  }, [getProductById, id, isLoading]);
 
   useEffect(() => {
     if (!isLoading) {
@@ -35,8 +38,16 @@ function ProductPage() {
     }
   }, [isLoading, productIdRequired]);
 
-  const handleAddToCartClick = () => {
-    addProductToCart(productIdRequired.id, productsToAddCounter);
+  const handleAddToCartClick = async () => {
+    const isProductInCart = allCartProducts.some(
+      (product) => product.productId == productIdRequired.id
+    );
+
+    if (isProductInCart) {
+      await updateCartProductAmount(productIdRequired.id, productsToAddCounter);
+    } else {
+      await addProductToCart(productIdRequired.id, productsToAddCounter);
+    }
 
     setTimeout(() => {
       setShowCart(true);

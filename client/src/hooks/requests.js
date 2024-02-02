@@ -83,7 +83,6 @@ async function httpUpdateCartProductAmount(id, amount) {
 
 async function httpRemoveProductFromCart(id) {
   try {
-    console.log("id passado ao request" + id);
     const response = await axios.delete(`${API_URL}/cart/remove/${id}`);
 
     return response;

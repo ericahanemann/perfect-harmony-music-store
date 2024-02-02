@@ -31,7 +31,6 @@ function removeProductFromCart(req, res) {
 
   const productToBeRemoved = stockProducts.find((product) => product.id == id);
   const newCart = cart.filter((product) => product.productId != id);
-  console.log(newCart);
 
   cart = newCart;
 
@@ -42,11 +41,15 @@ function updateProductAmount(req, res) {
   const id = req.params.id;
   const amount = req.body.amount;
 
+  let updatedProduct;
   cart.forEach((product) => {
-    if (product.id == id) {
+    if (product.productId == id) {
+      updatedProduct = product;
       product.amount += amount;
     }
   });
+
+  res.status(200).json(updatedProduct);
 }
 
 module.exports = {

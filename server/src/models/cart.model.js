@@ -1,11 +1,12 @@
 const cart = [
   {
-    productId: 18,
+    productId: 1,
     productImg: "stratocaster-red.png",
-    productName: "drums",
-    colorSelected: "black",
-    unitPrice: 3000,
+    productName: "CLASSIC VIBE '50S STRATOCASTER®",
+    colorSelected: "#ff0000",
+    unitPrice: 1300,
     amount: 1,
+    stockAmount: 12,
   },
 ];
 

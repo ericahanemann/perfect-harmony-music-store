@@ -5,7 +5,8 @@ import { BsHeart } from "react-icons/bs";
 import useCart from "../hooks/useCart";
 
 function InstrumentsGallery({ specificProductsRequired, setShowCart }) {
-  const { addProductToCart } = useCart(0);
+  const { addProductToCart, updateCartProductAmount, allCartProducts } =
+    useCart();
   const [instrumentDisplayed, setInstrumentDisplayed] = useState(
     specificProductsRequired[0]
   );
@@ -20,8 +21,16 @@ function InstrumentsGallery({ specificProductsRequired, setShowCart }) {
     opacity: 0.1,
   };
 
-  const handleAddToCartClick = () => {
-    addProductToCart(instrumentDisplayed.id, 1);
+  const handleAddToCartClick = async () => {
+    const isProductInCart = allCartProducts.some(
+      (product) => product.productId == instrumentDisplayed.id
+    );
+
+    if (isProductInCart) {
+      await updateCartProductAmount(instrumentDisplayed.id, 1);
+    } else {
+      await addProductToCart(instrumentDisplayed.id, 1);
+    }
 
     setTimeout(() => {
       setShowCart(true);

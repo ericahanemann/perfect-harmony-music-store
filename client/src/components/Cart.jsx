@@ -4,7 +4,7 @@ import useCart from "../hooks/useCart";
 import CartItem from "./CartItem";
 
 function Cart({ setShowCart }) {
-  const { allCartProducts, isLoadingCart } = useCart();
+  const { allCartProducts, isLoadingCart} = useCart();
   const cartRef = useRef(null);
   const [productsToBeDisplayed, setProductsToBeDisplayed] = useState(0);
 
@@ -17,6 +17,7 @@ function Cart({ setShowCart }) {
       cartRef.current.classList.add("animate-slideOut");
     }
 
+
     setTimeout(() => {
       setShowCart(false);
     }, 400);
@@ -24,7 +25,6 @@ function Cart({ setShowCart }) {
 
   if (!isLoadingCart) {
     const renderedCartItems = productsToBeDisplayed.map((item) => {
-      console.log(item);
       return (
         <CartItem
           key={item.productId}

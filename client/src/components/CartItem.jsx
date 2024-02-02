@@ -13,8 +13,11 @@ function CartItem({
   amount,
   setProductsToBeDisplayed,
 }) {
-  const { isLoadingCart, removeProductFromCart, updateCartProductAmount } =
-    useCart();
+  const {
+    isLoadingCart,
+    removeProductFromCart,
+    updateCartProductAmount,
+  } = useCart();
   const [productAmountCounter, setProductAmountCounter] = useState(amount);
   const itemRef = useRef(null);
 
@@ -35,14 +38,17 @@ function CartItem({
     if (productAmountCounter > 1) {
       const newAmount = productAmountCounter - 1;
       setProductAmountCounter(newAmount);
+
+      updateCartProductAmount(itemId, -1);
     }
   };
 
   const handlePlusClick = () => {
-    console.log(stockAmount);
     if (productAmountCounter < stockAmount) {
       const newAmount = productAmountCounter + 1;
       setProductAmountCounter(newAmount);
+
+      updateCartProductAmount(itemId, 1);
     }
   };
 
