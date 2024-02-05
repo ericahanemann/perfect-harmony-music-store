@@ -4,6 +4,7 @@ const cors = require("cors");
 
 const productsRouter = require("./routes/products.router");
 const cartRouter = require("./routes/cart.router");
+const favoritesRouter = require("./routes/favorites.router");
 
 const app = express();
 
@@ -21,6 +22,6 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "..", "public")));
 
-app.use("/", productsRouter, cartRouter);
+app.use("/", productsRouter, cartRouter, favoritesRouter);
 
 module.exports = app;

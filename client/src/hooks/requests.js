@@ -2,6 +2,8 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8000";
 
+//products requests
+
 async function httpGetAllProducts() {
   try {
     const response = await axios.get(`${API_URL}/products/all`);
@@ -45,6 +47,8 @@ async function httpGetSpecificCategory(category) {
     return [];
   }
 }
+
+//cart requests
 
 async function httpGetCartProducts() {
   try {
@@ -92,6 +96,30 @@ async function httpRemoveProductFromCart(id) {
   }
 }
 
+//favorites requests
+
+async function httpGetAllFavorites() {
+  try {
+    const response = await axios.get(`${API_URL}/favorites/all`);
+
+    return response;
+  } catch (error) {
+    console.log("Request error:", error);
+    return [];
+  }
+}
+
+async function httpGetFavoriteById(id) {
+  try {
+    const response = await axios.get(`${API_URL}/favorites/id/${id}`);
+
+    return response;
+  } catch (error) {
+    console.log("Request error:", error);
+    return [];
+  }
+}
+
 export {
   httpGetAllProducts,
   httpGetProductById,
@@ -101,4 +129,6 @@ export {
   httpAddProductToCart,
   httpUpdateCartProductAmount,
   httpRemoveProductFromCart,
+  httpGetAllFavorites,
+  httpGetFavoriteById,
 };
