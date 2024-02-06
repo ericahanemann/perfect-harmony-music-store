@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import Home from "./routes/Home.jsx";
 import Products from "./routes/Products.jsx";
 import ProductPage from "./routes/ProductPage.jsx";
+import FavoritesPage from "./routes/FavoritesPage.jsx";
 import ErrorPage from "./routes/ErrorPage.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "products/id/:id",
         element: <ProductPage />,
+      },
+      {
+        path: "favorites/",
+        element: <FavoritesPage />,
       },
     ],
   },

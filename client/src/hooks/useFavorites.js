@@ -1,36 +1,77 @@
-import { useCallback, useState } from "react";
-import { httpGetAllFavorites, httpGetFavoriteById } from "./requests";
+import { useCallback, useEffect, useState } from "react";
+import {
+  httpGetAllFavorites,
+  httpGetFavoriteById,
+  httpAddProductToFavorites,
+  httpRemoveProductFromFavorites,
+} from "./requests";
 
-function useProducts() {
+function useFavorites() {
   const [allFavoriteProducts, setAllFavoriteProducts] = useState([]);
   const [favoriteIdRequired, setFavoriteIdRequired] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingFavorites, setIsLoadingFavorites] = useState(true);
 
   const getAllFavorites = useCallback(async () => {
-    setIsLoading(true);
+    setIsLoadingFavorites(true);
 
     const favoriteProducts = await httpGetAllFavorites();
     setAllFavoriteProducts(favoriteProducts.data);
 
-    setIsLoading(false);
+    setIsLoadingFavorites(false);
   }, []);
 
+  useEffect(() => {
+    if (allFavoriteProducts.length == 0) {
+      getAllFavorites();
+    }
+  }, [getAllFavorites, allFavoriteProducts.length]);
+
   const getFavoriteById = useCallback(async (id) => {
-    setIsLoading(true);
+    setIsLoadingFavorites(true);
 
     const favoriteRequired = await httpGetFavoriteById(id);
     setFavoriteIdRequired(favoriteRequired.data);
 
-    setIsLoading(false);
+    setIsLoadingFavorites(false);
   }, []);
+
+  const addProductToFavorites = useCallback(
+    async (id) => {
+      setIsLoadingFavorites(true);
+
+      const productToAdd = await httpAddProductToFavorites(id);
+      await getAllFavorites();
+
+      setIsLoadingFavorites(false);
+
+      return productToAdd;
+    },
+    [getAllFavorites]
+  );
+
+  const removeProductFromFavorites = useCallback(
+    async (id) => {
+      setIsLoadingFavorites(true);
+
+      await httpRemoveProductFromFavorites(id);
+      await getAllFavorites();
+
+      setIsLoadingFavorites(false);
+
+      return [];
+    },
+    [getAllFavorites]
+  );
 
   return {
     allFavoriteProducts,
     getAllFavorites,
     favoriteIdRequired,
     getFavoriteById,
-    isLoading,
+    isLoadingFavorites,
+    addProductToFavorites,
+    removeProductFromFavorites,
   };
 }
 
-export default useProducts;
+export default useFavorites;

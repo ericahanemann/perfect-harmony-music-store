@@ -101,7 +101,7 @@ async function httpRemoveProductFromCart(id) {
 async function httpGetAllFavorites() {
   try {
     const response = await axios.get(`${API_URL}/favorites/all`);
-
+    console.log(response);
     return response;
   } catch (error) {
     console.log("Request error:", error);
@@ -112,6 +112,28 @@ async function httpGetAllFavorites() {
 async function httpGetFavoriteById(id) {
   try {
     const response = await axios.get(`${API_URL}/favorites/id/${id}`);
+
+    return response;
+  } catch (error) {
+    console.log("Request error:", error);
+    return [];
+  }
+}
+
+async function httpAddProductToFavorites(id) {
+  try {
+    const response = await axios.post(`${API_URL}/favorites/add/${id}`);
+
+    return response;
+  } catch (error) {
+    console.log("Request error:", error);
+    return [];
+  }
+}
+
+async function httpRemoveProductFromFavorites(id) {
+  try {
+    const response = await axios.delete(`${API_URL}/favorites/remove/${id}`);
 
     return response;
   } catch (error) {
@@ -131,4 +153,6 @@ export {
   httpRemoveProductFromCart,
   httpGetAllFavorites,
   httpGetFavoriteById,
+  httpAddProductToFavorites,
+  httpRemoveProductFromFavorites,
 };

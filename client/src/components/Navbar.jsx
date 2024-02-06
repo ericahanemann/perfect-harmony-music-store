@@ -53,7 +53,7 @@ function Navbar() {
 
         <div className="flex items-center gap-6 mr-6 font-extrabold">
           <NavLink
-            to="/"
+            to="/favorites"
             className={`${
               isMobileMenuOpen ? "hidden" : "flex"
             } align-middle hover:text-secondary ease-in-out duration-200`}
