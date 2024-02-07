@@ -101,7 +101,7 @@ async function httpRemoveProductFromCart(id) {
 async function httpGetAllFavorites() {
   try {
     const response = await axios.get(`${API_URL}/favorites/all`);
-    console.log(response);
+
     return response;
   } catch (error) {
     console.log("Request error:", error);

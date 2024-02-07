@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import useProducts from "../hooks/useProducts";
+import useFavorites from "../hooks/useFavorites";
 
 import { NavLink, Link } from "react-router-dom";
 import LoadingScreen from "../components/LoadingScreen";
 import SortingDropdown from "../components/SortingDropdown";
 import MobileFilter from "../components/MobileFilter";
 
-import { BsHeart } from "react-icons/bs";
+import { BsHeart, BsFillHeartFill } from "react-icons/bs";
 
 function Products({ category }) {
   const {
@@ -16,6 +17,12 @@ function Products({ category }) {
     getSpecificCategory,
     specificCategoryRequired,
   } = useProducts();
+  const {
+    allFavoriteProducts,
+    addProductToFavorites,
+    removeProductFromFavorites,
+    getAllFavorites,
+  } = useFavorites();
   const [productsData, setProductsData] = useState([]);
   const [productsToBeDisplayed, setProductsToBeDisplayed] = useState([]);
   const [numberItemsToBeDisplayed, setNumberItemsToBeDisplayed] = useState(12);
@@ -175,34 +182,60 @@ function Products({ category }) {
     );
   };
 
+  const handleAddToFavoritesClick = async (id) => {
+    await addProductToFavorites(id);
+  };
+
+  const handleRemoveFromFavoriteClick = async (id) => {
+    await removeProductFromFavorites(id);
+
+    getAllFavorites();
+  };
+
   renderedItems.push(
     productsToBeDisplayed
       .slice(0, numberItemsToBeDisplayed)
       .map((product, index) => {
         return (
-          <Link
-            to={`/products/id/${product.id}`}
+          <div
             key={index}
-            className="flex flex-col w-3/4 h-96 justify-between items-start md:w-2/5 lg:w-1/4"
+            className="relative flex flex-col w-3/4 h-96 justify-between items-start md:w-2/5 lg:w-1/4"
           >
-            <div className="flex-1 px-8 relative flex justify-center items-center">
-              <div className="absolute inset-0 flex justify-center items-center bg-highlights -z-50"></div>
-              <div className="absolute top-4 right-4 hover:cursor-pointer hover:text-secondary">
-                <BsHeart></BsHeart>
+            <Link to={`/products/id/${product.id}`} className="h-96 flex flex-col">
+              <div className="flex-1 px-8 relative flex justify-center items-center">
+                <div className="absolute inset-0 flex justify-center items-center bg-highlights -z-50"></div>
+                <img
+                  src={`../${product.images[0]}`}
+                  alt="product image"
+                  className="w-full h-auto"
+                />
               </div>
-              <img
-                src={`../${product.images[0]}`}
-                alt="product image"
-                className="w-full h-auto"
-              />
+              <div className="h-32 flex flex-col py-2 gap-2">
+                <h4 className="inline-block uppercase font-semibold">
+                  {product.name}
+                </h4>
+                <p>R${product.unitPrice}</p>
+              </div>
+            </Link>
+
+            <div className="absolute top-4 right-4 z-40 hover:cursor-pointer hover:text-secondary">
+              {allFavoriteProducts.some(
+                (favProduct) => favProduct.id == product.id
+              ) ? (
+                <BsFillHeartFill
+                  onClick={() => {
+                    handleRemoveFromFavoriteClick(Number(product.id));
+                  }}
+                ></BsFillHeartFill>
+              ) : (
+                <BsHeart
+                  onClick={() => {
+                    handleAddToFavoritesClick(Number(product.id));
+                  }}
+                ></BsHeart>
+              )}
             </div>
-            <div className="h-32 flex flex-col py-2 gap-2">
-              <h4 className="inline-block uppercase font-semibold">
-                {product.name}
-              </h4>
-              <p>R${product.unitPrice}</p>
-            </div>
-          </Link>
+          </div>
         );
       })
   );

@@ -50,21 +50,23 @@ function FavoritesPage() {
 
           <Link
             to={`/products/id/${product.id}`}
-            className="flex-1 px-8 relative flex justify-center items-center"
+            className="h-96 flex flex-col"
           >
-            <div className="absolute inset-0 flex justify-center items-center bg-highlights -z-50"></div>
-            <img
-              src={`../${product.img}`}
-              alt="product image"
-              className="w-full h-auto"
-            />
+            <div className="flex-1 px-8 relative flex justify-center items-center">
+              <div className="absolute inset-0 flex justify-center items-center bg-highlights -z-50"></div>
+              <img
+                src={`../${product.img}`}
+                alt="product image"
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="h-32 flex flex-col py-2 gap-2">
+              <h4 className="inline-block uppercase font-semibold">
+                {product.name}
+              </h4>
+              <p>R${product.unitPrice}</p>
+            </div>
           </Link>
-          <div className="h-32 flex flex-col py-2 gap-2">
-            <h4 className="inline-block uppercase font-semibold">
-              {product.name}
-            </h4>
-            <p>R${product.unitPrice}</p>
-          </div>
         </div>
       );
     });
