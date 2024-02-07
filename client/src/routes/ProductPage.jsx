@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import useProducts from "../hooks/useProducts";
+import useFavorites from "../hooks/useFavorites";
 
 import LoadingScreen from "../components/LoadingScreen";
 import Cart from "../components/Cart";
 
-import { BsBoxSeam, BsFillStarFill, BsDash, BsPlus } from "react-icons/bs";
+import {
+  BsBoxSeam,
+  BsFillStarFill,
+  BsDash,
+  BsPlus,
+  BsHeart,
+  BsFillHeartFill,
+} from "react-icons/bs";
 import useCart from "../hooks/useCart";
 
 function ProductPage() {
@@ -18,6 +26,12 @@ function ProductPage() {
   } = useProducts();
   const { addProductToCart, updateCartProductAmount, allCartProducts } =
     useCart();
+  const {
+    allFavoriteProducts,
+    addProductToFavorites,
+    removeProductFromFavorites,
+    getAllFavorites,
+  } = useFavorites();
   const [activeImgPath, setActiveImgPath] = useState("");
   const [activeInfo, setActiveInfo] = useState("desc");
   const [numberReviewsToBeDisplayed, setNumberReviewsToBeDisplayed] =
@@ -27,16 +41,15 @@ function ProductPage() {
 
   useEffect(() => {
     getProductById(id);
-    if (!isLoading) {
-      window.scrollTo(0, 0);
-    }
-  }, [getProductById, id, isLoading]);
+  }, [getProductById, id]);
 
   useEffect(() => {
-    if (!isLoading) {
+    if (productIdRequired.name) {
+      console.log(productIdRequired);
       setActiveImgPath(`../../${productIdRequired.images[0]}`);
+      window.scrollTo(0, 0);
     }
-  }, [isLoading, productIdRequired]);
+  }, [productIdRequired]);
 
   const handleAddToCartClick = async () => {
     const isProductInCart = allCartProducts.some(
@@ -54,9 +67,9 @@ function ProductPage() {
     }, 300);
   };
 
-  if (isLoading) {
+  if (isLoading && !productIdRequired.name) {
     return <LoadingScreen />;
-  } else if (!isLoading && productIdRequired != undefined) {
+  } else if (productIdRequired.name) {
     const handleProductsToAdd = (operation) => {
       if (
         operation == 1 &&
@@ -170,12 +183,22 @@ function ProductPage() {
       }
     );
 
+    const handleAddToFavoritesClick = async (id) => {
+      await addProductToFavorites(id);
+    };
+
+    const handleRemoveFromFavoriteClick = async (id) => {
+      await removeProductFromFavorites(id);
+
+      getAllFavorites();
+    };
+
     return (
       <div className="mt-64 min-h-screen lg:px-32">
         {showCart && <Cart showCart={showCart} setShowCart={setShowCart} />}
 
         <section className="flex flex-col w-screen lg:flex-row">
-          <div className="w-full mx-4 flex justify-center bg-highlights lg:w-1/2 lg:mx-0">
+          <div className="relative w-full mx-4 flex justify-center bg-highlights lg:w-1/2 lg:mx-0">
             <div className="w-1/5 flex flex-col justify-start">
               {renderedSecondaryImages}
             </div>
@@ -184,6 +207,24 @@ function ProductPage() {
                 src={activeImgPath}
                 alt={`${productIdRequired.name} main image`}
               />
+            </div>
+
+            <div className="absolute top-4 right-4 z-40 hover:cursor-pointer hover:text-secondary">
+              {allFavoriteProducts.some(
+                (favProduct) => favProduct.id == productIdRequired.id
+              ) ? (
+                <BsFillHeartFill
+                  onClick={() => {
+                    handleRemoveFromFavoriteClick(Number(productIdRequired.id));
+                  }}
+                ></BsFillHeartFill>
+              ) : (
+                <BsHeart
+                  onClick={() => {
+                    handleAddToFavoritesClick(Number(productIdRequired.id));
+                  }}
+                ></BsHeart>
+              )}
             </div>
           </div>
 
