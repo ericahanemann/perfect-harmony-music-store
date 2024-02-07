@@ -74,7 +74,7 @@ function Navbar() {
           >
             {isMobileMenuOpen ? (
               <BsXLg
-                className="text-xl text-bold z-50 absolute right-10 top-8"
+                className="text-xl text-bold z-50 absolute right-8 top-8"
                 size={20}
               />
             ) : (
@@ -97,7 +97,7 @@ function Navbar() {
           </NavLink>
 
           <NavLink
-            to="products"
+            to="products/all"
             className="hover:text-secondary ease-in-out duration-200"
             onClick={closeMobileMenu}
           >
@@ -105,7 +105,7 @@ function Navbar() {
           </NavLink>
 
           <NavLink
-            to="/"
+            to="/favorites"
             className="hover:text-secondary ease-in-out duration-200"
           >
             Favorites

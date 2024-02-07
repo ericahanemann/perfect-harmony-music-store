@@ -188,11 +188,11 @@ function InstrumentsGallery({ specificProductsRequired, setShowCart }) {
               style={instrumentDisplayedBg}
             ></div>
             <div className="h-4/5 flex flex-col justify-center items-center lg:flex-row lg:justify-start">
-              <div className="flex justify-center items-end h-1/2 md:h-auto md:pt-40 lg:justify-start lg:h-auto lg:pt-0">
+              <div className="flex justify-center items-end h-1/2 md:pt-40 lg:justify-start lg:h-auto lg:pt-0">
                 <img
                   src={instrumentDisplayedImage}
                   alt="instrument image"
-                  className="drop-shadow-5xl -rotate-90 z-10 lg:w-5/6"
+                  className="w-4/5 drop-shadow-5xl -rotate-90 md:-rotate-0 lg:-rotate-90 z-10 lg:w-5/6"
                 />
               </div>
 

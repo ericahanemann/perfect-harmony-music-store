@@ -4,7 +4,7 @@ import useCart from "../hooks/useCart";
 import CartItem from "./CartItem";
 
 function Cart({ setShowCart }) {
-  const { allCartProducts, isLoadingCart} = useCart();
+  const { allCartProducts, isLoadingCart } = useCart();
   const cartRef = useRef(null);
   const [productsToBeDisplayed, setProductsToBeDisplayed] = useState(0);
 
@@ -16,7 +16,6 @@ function Cart({ setShowCart }) {
     if (cartRef.current) {
       cartRef.current.classList.add("animate-slideOut");
     }
-
 
     setTimeout(() => {
       setShowCart(false);
@@ -48,7 +47,7 @@ function Cart({ setShowCart }) {
         ></div>
 
         <div
-          className="w-96 absolute top-0 bottom-0 right-0 bg-primary animate-slideIn overflow-y-auto"
+          className="w-screen absolute top-0 bottom-0 right-0 bg-primary animate-slideIn overflow-y-auto md:w-96"
           ref={cartRef}
         >
           <div className="mt-12 w-full flex flex-col justify-center items-center">
@@ -66,7 +65,7 @@ function Cart({ setShowCart }) {
 
           <div className="mt-8 mb-24">{renderedCartItems}</div>
 
-          <button className="fixed bottom-0 right-0 w-80 bg-secondary my-4 mx-8 p-4 uppercase font-semibold hover:bg-secondarylight">
+          <button className="fixed bottom-0 right-0 left-0  bg-secondary my-4 mx-8 p-4 uppercase font-semibold hover:bg-secondarylight md:left-auto md:w-80">
             finish
           </button>
         </div>
