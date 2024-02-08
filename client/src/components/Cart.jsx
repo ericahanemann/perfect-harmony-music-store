@@ -65,9 +65,18 @@ function Cart({ setShowCart }) {
 
           <div className="mt-8 mb-24">{renderedCartItems}</div>
 
-          <button className="fixed bottom-0 right-0 left-0  bg-secondary my-4 mx-8 p-4 uppercase font-semibold hover:bg-secondarylight md:left-auto md:w-80">
-            finish
-          </button>
+          {renderedCartItems.length > 0 ? (
+            <button className="fixed bottom-0 right-0 left-0  bg-secondary my-4 mx-8 p-4 uppercase font-semibold hover:bg-secondarylight md:left-auto md:w-80">
+              finish
+            </button>
+          ) : (
+            <button
+              className="fixed bottom-0 right-0 left-0 bg-highlights my-4 mx-8 p-4 uppercase font-semibold md:left-auto md:w-80"
+              disabled
+            >
+              finish
+            </button>
+          )}
         </div>
       </div>
     );
