@@ -48,6 +48,19 @@ async function httpGetSpecificCategory(category) {
   }
 }
 
+async function httpSearchProduct(searchTerm) {
+  try {
+    const response = await axios.get(
+      `${API_URL}/products/search/${searchTerm}`
+    );
+
+    return response;
+  } catch (error) {
+    console.log("Request error:", error);
+    return [];
+  }
+}
+
 //cart requests
 
 async function httpGetCartProducts() {
@@ -147,6 +160,7 @@ export {
   httpGetProductById,
   httpGetSpecificProducts,
   httpGetSpecificCategory,
+  httpSearchProduct,
   httpGetCartProducts,
   httpAddProductToCart,
   httpUpdateCartProductAmount,

@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/ph-icon.png";
-import { BsCart3, BsHeart, BsXLg } from "react-icons/bs";
+import { BsCart3, BsHeart, BsXLg, BsSearch } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Cart from "../components/Cart";
+import useProducts from "../hooks/useProducts";
 
 function Navbar() {
+  const { searchProducts } = useProducts();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showCart, setShowCart] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const searchInput = useRef(null);
+
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    searchInput.current.value = "";
+    await searchProducts(searchTerm);
+  };
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -67,6 +81,31 @@ function Navbar() {
               handleOpenCart();
             }}
           ></BsCart3>
+
+          <form
+            onSubmit={handleSubmit}
+            method="post"
+            className="d-flex"
+            id="searchForm"
+          >
+            <div className="relative">
+              <input
+                ref={searchInput}
+                type="text"
+                className="border border-inputColor rounded-sm outline-none p-2 font-light text-xs text-inputColor placeholder:text-inputColor hover:border-secondary focus:border-secondary autofill:bg-primary"
+                onChange={handleInputChange}
+                name="valorPesquisa"
+                id="valorPesquisa"
+                placeholder="Search for"
+              ></input>
+              <button
+                className="absolute right-2 top-2 text-inputColor"
+                type="submit"
+              >
+                <BsSearch></BsSearch>
+              </button>
+            </div>
+          </form>
 
           <button
             className="align-middle hover:text-secondary ease-in-out duration-200 lg:hidden"

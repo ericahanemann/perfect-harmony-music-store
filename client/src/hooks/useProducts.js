@@ -4,14 +4,19 @@ import {
   httpGetProductById,
   httpGetSpecificProducts,
   httpGetSpecificCategory,
+  httpSearchProduct,
 } from "./requests";
+import { useNavigate } from "react-router-dom";
 
 function useProducts() {
   const [allStockProducts, setAllStockProducts] = useState([]);
   const [productIdRequired, setProductIdRequired] = useState([]);
+  const [searchResult, setSearchResult] = useState([]);
   const [specificProductsRequired, setSpecificProductsRequired] = useState([]);
   const [specificCategoryRequired, setSpecificCategoryRequired] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchTermUrl, setSearchTermUrl] = useState("");
+  const navigate = useNavigate();
 
   const getAllProducts = useCallback(async () => {
     setIsLoading(true);
@@ -55,6 +60,22 @@ function useProducts() {
     }
   }, [getSpecificProducts, specificProductsRequired.length]);
 
+  const searchProducts = useCallback(async (searchTerm) => {
+    setIsLoading(true);
+
+    const result = await httpSearchProduct(searchTerm);
+    setSearchResult(result.data);
+    setSearchTermUrl(searchTerm);
+
+    setIsLoading(false);
+  }, []);
+
+  useEffect(() => {
+    if (searchResult.length > 0) {
+      navigate(`/products/search/${searchTermUrl}`);
+    }
+  }, [searchResult, navigate, searchTermUrl]);
+
   return {
     specificProductsRequired,
     allStockProducts,
@@ -66,6 +87,8 @@ function useProducts() {
     specificCategoryRequired,
     setSpecificCategoryRequired,
     getSpecificCategory,
+    searchResult,
+    searchProducts,
     isLoading,
   };
 }

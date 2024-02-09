@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useProducts from "../hooks/useProducts";
 import useFavorites from "../hooks/useFavorites";
 
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useParams } from "react-router-dom";
 import LoadingScreen from "../components/LoadingScreen";
 import SortingDropdown from "../components/SortingDropdown";
 import MobileFilter from "../components/MobileFilter";
@@ -16,6 +16,8 @@ function Products({ category }) {
     allStockProducts,
     getSpecificCategory,
     specificCategoryRequired,
+    searchResult,
+    searchProducts,
   } = useProducts();
   const {
     allFavoriteProducts,
@@ -42,6 +44,7 @@ function Products({ category }) {
   ];
   const [activeOption, setActiveOption] = useState(sortingOptions[0]);
   const [sortingOrderDescending, setSortingOrderDescending] = useState(false);
+  const { searchTerm } = useParams();
 
   let renderedItems = [];
   let renderedTypes = [];
@@ -49,20 +52,30 @@ function Products({ category }) {
   let renderedColors = [];
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (!isLoading) {
+      window.scrollTo(0, 0);
+    }
+  }, [isLoading]);
 
   useEffect(() => {
     async function fetchData() {
       if (category == "all") {
         await getAllProducts();
+      } else if (category == "search") {
+        await searchProducts(searchTerm);
       } else {
         await getSpecificCategory(category);
       }
     }
 
     fetchData();
-  }, [getAllProducts, getSpecificCategory, category]);
+  }, [
+    getAllProducts,
+    getSpecificCategory,
+    category,
+    searchProducts,
+    searchTerm,
+  ]);
 
   useEffect(() => {
     const getSortValue = (objectToBeSorted) => {
@@ -101,6 +114,9 @@ function Products({ category }) {
     if (category == "all" && !isFiltering) {
       setProductsData(allStockProducts);
       setProductsToBeDisplayed(sortData(allStockProducts));
+    } else if (category == "search" && !isFiltering) {
+      setProductsData(searchResult);
+      setProductsToBeDisplayed(sortData(searchResult));
     } else if (!isFiltering) {
       setProductsData(specificCategoryRequired);
       setProductsToBeDisplayed(sortData(specificCategoryRequired));
@@ -112,6 +128,7 @@ function Products({ category }) {
     sortingOrderDescending,
     allStockProducts,
     specificCategoryRequired,
+    searchResult,
     category,
     isFiltering,
     filteredProducts,
@@ -201,11 +218,14 @@ function Products({ category }) {
             key={index}
             className="relative flex flex-col w-3/4 h-96 justify-between items-start md:w-2/5 lg:w-1/4"
           >
-            <Link to={`/products/id/${product.id}`} className="h-96 flex flex-col">
+            <Link
+              to={`/products/id/${product.id}`}
+              className="h-96 flex flex-col"
+            >
               <div className="flex-1 px-8 relative flex justify-center items-center">
                 <div className="absolute inset-0 flex justify-center items-center bg-highlights -z-50"></div>
                 <img
-                  src={`../${product.images[0]}`}
+                  src={`../../${product.images[0]}`}
                   alt="product image"
                   className="w-full h-auto"
                 />

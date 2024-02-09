@@ -11,6 +11,7 @@ export default {
         secondary: "var(--color-secondary)",
         secondarylight: "var(--color-secondary-light)",
         textcolor: "var(--color-text)",
+        inputColor: "var(--color-input)",
         highlights: "var(--color-highlights)",
         highlightsLight: "var(--color-highlights-light)",
       },

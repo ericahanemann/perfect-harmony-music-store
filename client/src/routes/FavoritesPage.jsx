@@ -78,7 +78,7 @@ function FavoritesPage() {
         </h3>
         <div className="flex flex-wrap gap-12 justify-center">
           {renderedProducts.length > 0 ? (
-            { renderedProducts }
+            renderedProducts
           ) : (
             <div>{"You don't have any favorite products yet :("}</div>
           )}
