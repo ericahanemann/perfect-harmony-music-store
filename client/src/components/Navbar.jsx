@@ -11,6 +11,7 @@ function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isSearchVisible, setSearchVisible] = useState(false);
   const searchInput = useRef(null);
 
   const handleInputChange = (event) => {
@@ -21,6 +22,10 @@ function Navbar() {
     event.preventDefault();
     searchInput.current.value = "";
     await searchProducts(searchTerm);
+  };
+
+  const handleMobileSearchClick = () => {
+    setSearchVisible(true);
   };
 
   const toggleMobileMenu = () => {
@@ -85,19 +90,20 @@ function Navbar() {
           <form
             onSubmit={handleSubmit}
             method="post"
-            className="d-flex"
+            className={`${isSearchVisible ? "flex" : "hidden"} lg:flex`}
             id="searchForm"
           >
             <div className="relative">
               <input
                 ref={searchInput}
                 type="text"
-                className="border border-inputColor rounded-sm outline-none p-2 font-light text-xs text-inputColor placeholder:text-inputColor hover:border-secondary focus:border-secondary autofill:bg-primary"
+                className="w-28 border border-inputColor rounded-sm outline-none p-2 font-light text-xs text-inputColor placeholder:text-inputColor hover:border-secondary focus:border-secondary autofill:bg-primary md:w-auto"
                 onChange={handleInputChange}
                 name="valorPesquisa"
                 id="valorPesquisa"
                 placeholder="Search for"
               ></input>
+
               <button
                 className="absolute right-2 top-2 text-inputColor"
                 type="submit"
@@ -106,6 +112,16 @@ function Navbar() {
               </button>
             </div>
           </form>
+
+          <button
+            className={`${
+              isSearchVisible ? "hidden" : ""
+            } text-textcolor lg:hidden`}
+            type="button"
+            onClick={() => handleMobileSearchClick()}
+          >
+            <BsSearch></BsSearch>
+          </button>
 
           <button
             className="align-middle hover:text-secondary ease-in-out duration-200 lg:hidden"
