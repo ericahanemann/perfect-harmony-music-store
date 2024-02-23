@@ -227,7 +227,7 @@ function Products({ category }) {
                 <img
                   src={`../../${product.images[0]}`}
                   alt="product image"
-                  className="w-full h-auto"
+                  className="w-auto max-h-48"
                 />
               </div>
               <div className="h-32 flex flex-col py-2 gap-2">
@@ -350,37 +350,37 @@ function Products({ category }) {
           <div className="flex flex-col items-start self-start">
             <h4 className="text-lg font-bold uppercase">category</h4>
             <NavLink
-              to="../products/all"
+              to="../../products/all"
               className={({ isActive }) => (isActive ? "text-secondary" : "")}
             >
               <div>All</div>
             </NavLink>
             <NavLink
-              to="../products/percussion"
+              to="../../products/percussion"
               className={({ isActive }) => (isActive ? "text-secondary" : "")}
             >
               <div>Percussion</div>
             </NavLink>
             <NavLink
-              to="../products/stringed"
+              to="../../products/stringed"
               className={({ isActive }) => (isActive ? "text-secondary" : "")}
             >
               <div>Stringed</div>
             </NavLink>
             <NavLink
-              to="../products/wind"
+              to="../../products/wind"
               className={({ isActive }) => (isActive ? "text-secondary" : "")}
             >
               <div>Wind</div>
             </NavLink>
             <NavLink
-              to="../products/keyboard"
+              to="../../products/keyboard"
               className={({ isActive }) => (isActive ? "text-secondary" : "")}
             >
               <div>Keyboard</div>
             </NavLink>
             <NavLink
-              to="../products/accessories"
+              to="../../products/accessories"
               className={({ isActive }) => (isActive ? "text-secondary" : "")}
             >
               <div>Accessories</div>

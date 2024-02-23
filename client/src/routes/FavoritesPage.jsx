@@ -57,7 +57,7 @@ function FavoritesPage() {
               <img
                 src={`../${product.img}`}
                 alt="product image"
-                className="w-full h-auto"
+                className="w-auto max-h-52"
               />
             </div>
             <div className="h-32 flex flex-col py-2 gap-2">

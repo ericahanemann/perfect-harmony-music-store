@@ -18,12 +18,8 @@ import useCart from "../hooks/useCart";
 
 function ProductPage() {
   const { id } = useParams();
-  const {
-    isLoading,
-    productIdRequired,
-    getProductById,
-    specificProductsRequired,
-  } = useProducts();
+  const { isLoading, productIdRequired, getProductById, allStockProducts } =
+    useProducts();
   const { addProductToCart, updateCartProductAmount, allCartProducts } =
     useCart();
   const {
@@ -45,7 +41,6 @@ function ProductPage() {
 
   useEffect(() => {
     if (productIdRequired.name) {
-      console.log(productIdRequired);
       setActiveImgPath(`../../${productIdRequired.images[0]}`);
       window.scrollTo(0, 0);
     }
@@ -126,7 +121,7 @@ function ProductPage() {
         } hover:border-secondary hover:cursor-pointer`;
 
         let productColorClickedId;
-        specificProductsRequired.forEach((product) => {
+        allStockProducts.forEach((product) => {
           if (
             product.color == productColor.color &&
             product.name.toUpperCase() == productIdRequired.name.toUpperCase()
@@ -199,13 +194,14 @@ function ProductPage() {
 
         <section className="flex flex-col w-screen lg:flex-row">
           <div className="relative w-full mx-4 flex justify-center bg-highlights lg:w-1/2 lg:mx-0">
-            <div className="w-1/5 flex flex-col justify-start">
+            <div className="w-1/12 flex flex-col justify-start">
               {renderedSecondaryImages}
             </div>
-            <div className="flex justify-center items-center">
+            <div className="flex w-full justify-center items-center p-4">
               <img
                 src={activeImgPath}
                 alt={`${productIdRequired.name} main image`}
+                className="max-h-96"
               />
             </div>
 

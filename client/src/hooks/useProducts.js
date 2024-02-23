@@ -27,6 +27,12 @@ function useProducts() {
     setIsLoading(false);
   }, []);
 
+  useEffect(() => {
+    if (allStockProducts.length == 0) {
+      getAllProducts();
+    }
+  }, [getAllProducts, allStockProducts.length]);
+
   const getProductById = useCallback(async (id) => {
     setIsLoading(true);
 
