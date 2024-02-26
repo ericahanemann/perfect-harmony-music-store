@@ -12,19 +12,19 @@ const cart = [
   },
 ];
 
-async function saveCartData(product) {
-  try {
-    await Cart.updateOne(
-      { productId: product.productId },
-      { $set: product },
-      {
-        upsert: true,
-      }
-    );
-  } catch (err) {
-    console.error(err);
-  }
-}
+// async function saveCartData(product) {
+//   try {
+//     await Cart.updateOne(
+//       { productId: product.productId },
+//       { $set: product },
+//       {
+//         upsert: true,
+//       }
+//     );
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
 
 // cart.map(async (product) => {
 //   await saveCartData(product);

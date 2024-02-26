@@ -11,19 +11,19 @@ const favoriteProducts = [
   },
 ];
 
-async function saveFavoritesData(product) {
-  try {
-    await Favorite.updateOne(
-      { id: product.id },
-      { $set: product },
-      {
-        upsert: true,
-      }
-    );
-  } catch (err) {
-    console.error(err);
-  }
-}
+// async function saveFavoritesData(product) {
+//   try {
+//     await Favorite.updateOne(
+//       { id: product.id },
+//       { $set: product },
+//       {
+//         upsert: true,
+//       }
+//     );
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
 
 // favoriteProducts.map(async (product) => {
 //   await saveFavoritesData(product);
