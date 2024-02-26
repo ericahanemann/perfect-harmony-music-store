@@ -22,7 +22,7 @@ function Footer() {
   };
 
   return (
-    <footer className="bg-textcolor text-highlights flex flex-col justify-center items-center">
+    <footer className="bg-textcolor text-highlights flex flex-col justify-center items-center z-50">
       <div className="flex flex-col gap-4 justify-between w-4/5 m-auto pt-4 pb-2 px-6 lg:flex-row">
         <div className="flex flex-col">
           <div

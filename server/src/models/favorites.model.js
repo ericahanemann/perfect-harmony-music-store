@@ -1,3 +1,5 @@
+const Favorite = require("./favorites.mongo");
+
 const favoriteProducts = [
   {
     id: 1,
@@ -9,4 +11,24 @@ const favoriteProducts = [
   },
 ];
 
-module.exports = favoriteProducts;
+async function saveFavoritesData(product) {
+  try {
+    await Favorite.updateOne(
+      { id: product.id },
+      { $set: product },
+      {
+        upsert: true,
+      }
+    );
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+// favoriteProducts.map(async (product) => {
+//   await saveFavoritesData(product);
+// });
+
+module.exports = {
+  saveFavoritesData,
+};

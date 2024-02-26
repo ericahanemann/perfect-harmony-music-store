@@ -1,53 +1,72 @@
-let favoriteProducts = require("../models/favorites.model");
-const stockProducts = require("../models/products.model");
+const Favorite = require("../models/favorites.mongo");
+const Product = require("../models/products.mongo");
 
-function getAllFavorites(req, res) {
-  return res.status(200).json(favoriteProducts);
+async function getAllFavorites(req, res) {
+  try {
+    const allFavorites = await Favorite.find({}, { _id: 0, __v: 0 }).sort({
+      id: 1,
+    });
+    return res.status(200).json(allFavorites);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
 }
 
-function getFavoriteById(req, res) {
-  const id = req.params.id;
-  let productRequired;
+async function getFavoriteById(req, res) {
+  try {
+    const id = req.params.id;
+    const favoriteProduct = await Favorite.findOne({ id: id });
 
-  favoriteProducts.map((product) => {
-    if (product.id == id) {
-      productRequired = product;
+    return res.status(200).json(favoriteProduct);
+  } catch (error) {
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+}
+
+async function addProductToFavorites(req, res) {
+  try {
+    const id = req.params.id;
+
+    const productToBeAdded = await Product.findOne({ id: id });
+
+    if (!productToBeAdded) {
+      return res.status(404).json({ error: "Product not found" });
     }
-  });
 
-  return res.status(200).json(productRequired);
+    const favoriteProduct = {
+      id: id,
+      type: productToBeAdded.type,
+      img: productToBeAdded.images[0],
+      name: productToBeAdded.name,
+      unitPrice: productToBeAdded.unitPrice,
+      addedAt: new Date(),
+    };
+
+    await Favorite.create(favoriteProduct);
+
+    return res.status(201).json(productToBeAdded);
+  } catch (error) {
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
 }
 
-function addProductToFavorites(req, res) {
-  const id = req.params.id;
+async function removeProductFromFavorites(req, res) {
+  try {
+    const id = req.params.id;
 
-  const productToBeAdded = stockProducts.find((product) => {
-    return product.id == id;
-  });
+    const favoriteProduct = await Favorite.findOne({ id: id });
 
-  favoriteProducts.push({
-    id: id,
-    type: productToBeAdded.type,
-    img: productToBeAdded.images[0],
-    name: productToBeAdded.name,
-    unitPrice: productToBeAdded.unitPrice,
-    addedAt: new Date(),
-  });
+    if (!favoriteProduct) {
+      return res.status(404).json({ error: "Favorite product not found" });
+    }
 
-  res.status(201).json(productToBeAdded);
-}
+    await Favorite.deleteOne({ id: id });
 
-function removeProductFromFavorites(req, res) {
-  const id = req.params.id;
-
-  const productToBeRemoved = favoriteProducts.find(
-    (product) => product.id == id
-  );
-  const newFavorites = favoriteProducts.filter((product) => product.id != id);
-
-  favoriteProducts = newFavorites;
-
-  return res.status(200).json(productToBeRemoved);
+    return res.status(200).json(favoriteProduct);
+  } catch (error) {
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
 }
 
 module.exports = {

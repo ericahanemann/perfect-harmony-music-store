@@ -32,3 +32,5 @@ Technologies and libraries used so far:
   - axios
   - react icons
   - react router
+  - mongoose
+- MongoDB Atlas

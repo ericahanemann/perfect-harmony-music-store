@@ -1,3 +1,5 @@
+const Cart = require("./cart.mongo");
+
 const cart = [
   {
     productId: 1,
@@ -10,4 +12,24 @@ const cart = [
   },
 ];
 
-module.exports = cart;
+async function saveCartData(product) {
+  try {
+    await Cart.updateOne(
+      { productId: product.productId },
+      { $set: product },
+      {
+        upsert: true,
+      }
+    );
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+// cart.map(async (product) => {
+//   await saveCartData(product);
+// });
+
+module.exports = {
+  saveCartData,
+};

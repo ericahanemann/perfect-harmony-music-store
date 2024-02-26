@@ -1,63 +1,96 @@
-const stockProducts = require("../models/products.model");
+const Product = require("../models/products.mongo");
+const { stockProducts } = require("../models/products.model");
 
-function getAllProducts(req, res) {
-  return res.status(200).json(stockProducts);
+async function saveProductsData(product) {
+  try {
+    await Product.updateOne(
+      { id: product.id },
+      { $set: product },
+      {
+        upsert: true,
+      }
+    );
+  } catch (err) {
+    console.error(err);
+  }
 }
 
-function getProductById(req, res) {
-  const id = req.params.id;
-  let productRequired;
+stockProducts.map(async (product) => {
+  await saveProductsData(product);
+});
 
-  stockProducts.map((product) => {
-    if (product.id == id) {
-      productRequired = product;
-    }
-  });
-
-  return res.status(200).json(productRequired);
+async function getAllProducts(req, res) {
+  try {
+    const allProducts = await Product.find({}, { __id: 0, __v: 0 }).sort({
+      id: 1,
+    });
+    console.log(allProducts);
+    return res.status(200).json(allProducts);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
 }
 
-function getSpecificProduct(req, res) {
-  const productType = req.params.productType;
-  let productsRequired = [];
+async function getProductById(req, res) {
+  try {
+    const id = req.params.id;
+    const productRequired = await Product.findOne({ id: id });
 
-  stockProducts.map((product) => {
-    if (product.type.toUpperCase() == productType.toUpperCase()) {
-      productsRequired.push(product);
-    }
-  });
-
-  return res.status(200).json(productsRequired);
+    return res.status(200).json(productRequired);
+  } catch (error) {
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
 }
 
-function getSpecificCategory(req, res) {
-  const category = req.params.category;
-  let categoryRequired = [];
+async function getSpecificProduct(req, res) {
+  try {
+    const productType = req.params.productType;
+    const productsRequired = await Product.find({
+      type: { $regex: new RegExp(productType, "i") },
+    }).sort({
+      id: 1,
+    });
 
-  stockProducts.map((product) => {
-    if (product.category.toUpperCase() == category.toUpperCase()) {
-      categoryRequired.push(product);
-    }
-  });
-
-  return res.status(200).json(categoryRequired);
+    return res.status(200).json(productsRequired);
+  } catch (error) {
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
 }
 
-function searchProducts(req, res) {
-  let matchingProducts = [];
-  const searchTerm = req.body.searchTerm.toUpperCase();
+async function getSpecificCategory(req, res) {
+  try {
+    const category = req.params.category;
+    const categoryRequired = await Product.find({
+      category: { $regex: new RegExp(category, "i") },
+    }).sort({
+      id: 1,
+    });
 
-  stockProducts.map((product) => {
-    if (
-      product.name.toUpperCase().includes(searchTerm) ||
-      product.type.toUpperCase().includes(searchTerm) ||
-      product.category.toUpperCase().includes(searchTerm)
-    ) {
-      matchingProducts.push(product);
-    }
-  });
+    return res.status(200).json(categoryRequired);
+  } catch (error) {
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+}
 
-  return res.status(200).json(matchingProducts);
+async function searchProducts(req, res) {
+  try {
+    const searchTerm = req.params.searchTerm.toUpperCase();
+
+    const matchingProducts = await Product.find({
+      $or: [
+        { name: { $regex: new RegExp(searchTerm, "i") } },
+        { type: { $regex: new RegExp(searchTerm, "i") } },
+        { category: { $regex: new RegExp(searchTerm, "i") } },
+      ],
+    }).sort({
+      id: 1,
+    });
+
+    return res.status(200).json(matchingProducts);
+  } catch (error) {
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
 }
 
 module.exports = {

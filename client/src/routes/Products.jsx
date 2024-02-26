@@ -346,7 +346,7 @@ function Products({ category }) {
   } else {
     return (
       <div className="relative mt-36 w-screen min-h-screen mx-auto flex justify-end">
-        <div className="fixed top-36 bottom-60 left-0 w-1/5 max-h-screen overflow-y-auto hidden flex-col gap-8 justify-start items-start mx-auto px-8 lg:flex">
+        <div className="fixed top-36 bottom-60 left-0 w-1/5 max-h-screen overflow-y-auto hidden flex-col gap-4 justify-start items-start mx-auto px-8 lg:flex">
           <div className="flex flex-col items-start self-start">
             <h4 className="text-lg font-bold uppercase">category</h4>
             <NavLink
