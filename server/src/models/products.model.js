@@ -1975,7 +1975,7 @@ const stockProducts = [
   {
     id: 26,
     category: "Keyboard",
-    type: "Keyboard Synth",
+    type: "Keyboard Synthesizer",
     brand: "Yamaha",
     name: "MODX8+ 88 GHS-weighted Key Synthesizer",
     description:
@@ -2041,7 +2041,7 @@ const stockProducts = [
   {
     id: 27,
     category: "Keyboard",
-    type: "Keyboard Synthesizer with Sequencer",
+    type: "Keyboard Synthesizer",
     brand: "Roland",
     name: "JUNO-DS88 88-key Synthesizer",
     description:
@@ -2107,7 +2107,7 @@ const stockProducts = [
   {
     id: 28,
     category: "Keyboard",
-    type: "Keyboard Synthesizer with Sequencer",
+    type: "Keyboard Synthesizer",
     brand: "Moog",
     name: "Grandmother Semi-Modular Analog Synthesizer and Step Sequencer",
     description:
@@ -2314,7 +2314,7 @@ const stockProducts = [
   {
     id: 31,
     category: "Wind",
-    type: "Digital Saxophone",
+    type: "Saxophone",
     brand: "Yamaha",
     name: "YDS-120 Digital Saxophone",
     description:

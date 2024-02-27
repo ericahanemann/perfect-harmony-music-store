@@ -105,7 +105,11 @@ function ProductPage() {
               setActiveImgPath(path);
             }}
           >
-            <img src={path} alt={`${productIdRequired.name} secondary image`} />
+            <img
+              src={path}
+              className="max-w-full max-h-full"
+              alt={`${productIdRequired.name} secondary image`}
+            />
           </div>
         );
       }
@@ -197,11 +201,11 @@ function ProductPage() {
             <div className="w-1/12 flex flex-col justify-start">
               {renderedSecondaryImages}
             </div>
-            <div className="flex w-full justify-center items-center p-4">
+            <div className="flex w-full h-96 justify-center items-center p-8">
               <img
                 src={activeImgPath}
                 alt={`${productIdRequired.name} main image`}
-                className="max-h-96"
+                className="max-h-80"
               />
             </div>
 
@@ -276,7 +280,7 @@ function ProductPage() {
                 </button>
               </div>
 
-              <button className="w-screen p-4 my-4 bg-secondary uppercase hover:bg-secondarylight md:w-1/2">
+              <button className="w-screen p-4 bg-secondary uppercase hover:bg-secondarylight md:w-1/2">
                 buy now
               </button>
             </div>
