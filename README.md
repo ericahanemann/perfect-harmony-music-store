@@ -14,12 +14,21 @@
 - Home page
   ![](client/src/assets/home-page.png)
 
+- Cart
+  ![](client/src/assets/cart.png)
+
 - Products page
   ![](client/src/assets/products-page.png)
 
+- Specific project page
+  ![](client/src/assets/project-page.png)
+
+- Favorites page
+  ![](client/src/assets/favorites-page.png)
+
 ## Technologies
 
-Technologies and libraries used so far:
+Technologies and libraries used:
 
 - HTML e CSS (Tailwind CSS)
 - JavaScript
