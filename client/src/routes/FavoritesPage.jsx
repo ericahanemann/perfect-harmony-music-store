@@ -50,7 +50,7 @@ function FavoritesPage() {
 
           <Link
             to={`/products/id/${product.id}`}
-            className="h-96 flex flex-col"
+            className="h-96 w-full flex flex-col"
           >
             <div className="flex-1 px-8 relative flex justify-center items-center">
               <div className="absolute inset-0 flex justify-center items-center bg-highlights -z-50"></div>
